@@ -173,10 +173,10 @@ target
 tmp
 .history
 dist
-/.idea
-/*.iml
+#/.idea
+#/*.iml
 /out
-/.idea_modules
+#/.idea_modules
 /.classpath
 /.project
 /RUNNING_PID
