@@ -1,0 +1,66 @@
+@(message: String)
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bootstrap 101 Шаблон</title>
+        <!-- Bootstrap -->
+        <link href="@routes.Assets.at("stylesheets/bootstrap/css/bootstrap.min.css")" rel="stylesheet" media="screen">
+        <link href="@routes.Assets.at("stylesheets/bootstrap/css/bootstrap-responsive.min.css")" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <h1>Привет! Я Bootstrap...</h1>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="@routes.Assets.at("stylesheets/bootstrap/js/bootstrap.min.js")"></script>
+
+        <div class="dropdown">
+        <!-- Link or button to toggle dropdown -->
+
+            <!--<button class="btn" data-toggle="dropdown">1</button>-->
+            <a href="btn" data-toggle="dropdown">1</a>
+
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li><a tabindex="-1" href="#">Действие1</a></li>
+                <li><a tabindex="-1" href="#">Другое действие</a></li>
+                <li><a tabindex="-1" href="#">Еще ссылка</a></li>
+                <li class="divider"></li>
+                <li><a tabindex="-1" href="#">Доп. ссылка</a></li>
+            </ul>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+            <button class="btn">3</button>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn">Кнопка</button>
+            <button class="btn dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+            <!-- dropdown menu links -->
+                <li><a tabindex="-1" href="#">Действие</a></li>
+                <li><a tabindex="-1" href="#">Другое действие</a></li>
+                <li><a tabindex="-1" href="#">Еще ссылка</a></li>
+                <li class="divider"></li>
+                <li><a tabindex="-1" href="#">Доп. ссылка</a></li>
+            </ul>
+        </div>
+
+
+        <address>
+            <strong>Twitter, Inc.</strong><br>
+            795 Folsom Ave, Suite 600<br>
+            San Francisco, CA 94107<br>
+            <abbr title="Phone">P:</abbr> (123) 456-7890
+        </address>
+
+        <address>
+            <strong>Full Name</strong><br>
+            <a href="mailto:#">first.lastgmail.com</a>
+        </address>
+
+    </body>
+</html>
