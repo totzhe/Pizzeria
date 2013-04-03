@@ -1,0 +1,25 @@
+.phone_number{
+    font-family: 'Century Gothic', 'Times New Roman', serif;
+    font-size: 32pt;
+    position: relative;
+    right: -230px;
+    top: 30px;
+}
+
+.free_text{
+    font-family: 'Century Gothic', 'Times New Roman', serif;
+    font-size: 13pt;
+    position: relative;
+    right: -410px;
+    top: 40px;
+}
+
+.main_menu{
+    position: relative;
+    right: -145px;
+    top: 60px;
+}
+
+.main_menu a:hover{
+    text-decoration: none;
+}
