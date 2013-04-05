@@ -69,7 +69,6 @@
           <root url="jar://C:/play-2.0.4/framework/sbt/boot/scala-2.9.1/lib/jansi.jar!/" />
           <root url="jar://C:/play-2.0.4/repository/local/org.hibernate.javax.persistence/hibernate-jpa-2.0-api/1.0.1.Final/jars/hibernate-jpa-2.0-api.jar!/" />
           <root url="jar://C:/play-2.0.4/framework/sbt/boot/scala-2.9.1/lib/scala-compiler.jar!/" />
-          <root url="jar://C:/play-2.0.4/repository/local/org.avaje/ebean/2.7.3/jars/ebean.jar!/" />
           <root url="jar://C:/play-2.0.4/repository/local/com.ning/async-http-client/1.7.6/jars/async-http-client.jar!/" />
           <root url="jar://C:/play-2.0.4/framework/sbt/boot/scala-2.9.1/org.scala-sbt/sbt/0.11.3/jsch-0.1.46.jar!/" />
           <root url="jar://C:/play-2.0.4/framework/sbt/boot/scala-2.9.1/org.scala-sbt/sbt/0.11.3/classpath_2.9.1-0.11.3.jar!/" />
