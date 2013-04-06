@@ -1,6 +1,7 @@
 package models;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -47,5 +48,14 @@ public class DishSort {
 
     public void setPicturePath(String picturePath) {
         this.picturePath = picturePath;
+    }
+
+    @OneToMany(fetch=FetchType.LAZY)
+    @JoinColumn(name="sort_id")
+    @OrderBy("id ASC")
+    private List<Dish> dishes;
+
+    public List<Dish> getDishes() {
+        return dishes;
     }
 }
