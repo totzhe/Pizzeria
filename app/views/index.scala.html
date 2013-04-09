@@ -1,9 +1,22 @@
 @(id: scala.Int, str: String, str1: String)
 
 @main(Html("Pizza")){
-    <h2>Sign up form</h2>
+    <div id="myCarousel" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="active item">
+                <img src="@routes.Assets.at("images/pizza1.jpg")" height="400px" width="670px" alt="">
+            </div>
+            <div class="item">
+                <img src="@routes.Assets.at("images/telat_jigo.jpg")" height="400px" width="670px" alt="">
+            </div>
+        </div>
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 
-    <p>
-            Demonstrate a classical sign up form.  id = @id name = @str cat = @str1
-    </p>
+        <script>
+            $(document).ready(function(){
+                $('.carousel').carousel() ;
+            }) ;
+        </script>
+    </div>
 }
