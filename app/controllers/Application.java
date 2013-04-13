@@ -1,5 +1,6 @@
 package controllers;
 
+import daos.DishSortDao;
 import daos.GenericDaoJPAImpl;
 import models.*;
 import play.*;
@@ -9,6 +10,7 @@ import play.mvc.*;
 import views.html.*;
 
 import javax.persistence.criteria.*;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Application extends Controller {
@@ -21,7 +23,7 @@ public class Application extends Controller {
 
         //List<DishSort> sorts = JPA.em().createQuery("SELECT e FROM DishSort e order by id").getResultList();
 
-        GenericDaoJPAImpl<DishSort, Integer> dao1 = new GenericDaoJPAImpl<DishSort, Integer>(DishSort.class);
+        DishSortDao dao1 = new DishSortDao(DishSort.class);
         //GenericDaoJPAImpl<Dish, Integer> dao = new GenericDaoJPAImpl<Dish, Integer>(Dish.class);
 
 
@@ -44,13 +46,21 @@ public class Application extends Controller {
 
         Dish d;
         GenericDaoJPAImpl<Dish, Integer> dao = new GenericDaoJPAImpl<Dish, Integer>(Dish.class);
-        d = dao.read(1);
 
         //change dish sort
+        d = dao.read(1);
         d.getSort();
         d.setSort(ds);
         dao.update(d);
-        return ok(index.render(ds.getId(), d.getName(), d.getSort().getName()));
+
+        /*List<DishSort> sorts = new LinkedList<DishSort>();
+        for(int i = 1; i < 7; i++)
+        {
+            ds = dao1.read(i);
+            sorts.add(ds);
+        }  */
+        //return ok(index.render(ds.getId(), d.getName(), d.getSort().getName()));
+        return ok(index.render(dao1.getAll()));
     }
 
     public static Result menu() {

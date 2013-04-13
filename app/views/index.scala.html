@@ -1,4 +1,4 @@
-@(id: scala.Int, str: String, str1: String)
+@(sorts: List[models.DishSort])
 
 @main(Html("Pizza")){
     <div id="myCarousel" class="carousel slide">
@@ -21,13 +21,16 @@
     </div>
 
     <ul class="thumbnails">
+
         <div class="row">
+        @for(sort <-  sorts.seq) {
             <li class="span4">
                 <a href="#" class="thumbnail">
-                    <img src="@routes.Assets.at("images/titlesformainpage/pizza_title.jpg")" width="270px" height="180px">
-                    <p class="text-center">Пицца</p>
+                    <img src="@routes.Assets.at(sort.getPicturePath())" width="270px" height="180px">
+                    <p class="text-center">@sort.getName</p>
                 </a>
             </li>
+        }
         </div>
     </ul>
 

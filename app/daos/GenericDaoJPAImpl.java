@@ -14,8 +14,8 @@ import java.io.Serializable;
  */
 public class GenericDaoJPAImpl<T, PK extends Serializable>
         implements GenericDao<T, PK> {
-    private Class<T> type;
-    private EntityManager em;
+    protected Class<T> type;
+    protected EntityManager em;
 
     public GenericDaoJPAImpl(Class<T> type) {
         this.type = type;
