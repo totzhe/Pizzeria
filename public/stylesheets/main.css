@@ -1,3 +1,8 @@
+footer{
+    position: relative;
+    bottom: -70px;
+}
+
 .phone_number{
     font-family: 'Century Gothic', 'Times New Roman', serif;
     font-size: 32pt;
@@ -21,5 +26,26 @@
 }
 
 .main_menu a:hover{
+    text-decoration: none;
+}
+
+.carousel {
+    margin-top: 30px;
+}
+
+#menu-bar{
+    position: relative;
+    top: 20px;
+}
+
+#menu-bar a{
+    font-family: 'AGUniversityCyr-Roman', serif;
+    font-size: 24pt;
+    color: firebrick;
+    letter-spacing: -0.1em;
+    word-spacing: -0.25em;
+}
+
+#menu-bar a:hover{
     text-decoration: none;
 }
