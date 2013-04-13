@@ -40,7 +40,7 @@ footer{
 
 #menu-bar a{
     font-family: 'AGUniversityCyr-Roman', serif;
-    font-size: 24pt;
+    font-size: 26pt;
     color: firebrick;
     letter-spacing: -0.1em;
     word-spacing: -0.25em;
@@ -48,4 +48,34 @@ footer{
 
 #menu-bar a:hover{
     text-decoration: none;
+}
+
+.thumbnails a:hover{
+    text-decoration: none;
+}
+
+.thumbnails a{
+    color: #bd362f;
+    font-size: 20pt;
+    font-family: 'Century Gothic', 'Times New Roman', serif;
+}
+
+.thumbnails{
+    margin-top: 50px;
+    border: none;
+}
+
+#dish-name{
+    color: #000000;
+}
+
+#dish-weight{
+    color: #808080;
+    font-size: 22px;
+}
+
+#dish-cost{
+    color: red;
+    font-size: 28px;
+    font-weight: bold;
 }
