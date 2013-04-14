@@ -66,4 +66,8 @@ public class Application extends Controller {
     public static Result menu() {
         return ok(menu.render());
     }
+
+    public static Result basket(){
+        return ok(basket.render());
+    }
 }

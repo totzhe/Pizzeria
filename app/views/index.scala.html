@@ -20,10 +20,10 @@
         <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div>
 
-    <ul class="thumbnails" id=index_t>
+    <ul class="thumbnails" id="index_t">
         <div class="row">
         @for(sort <-  sorts.seq) {
-            <li class="span4">
+            <li class="span4" id="index_s">
                 <a href="#" class="thumbnail">
                     <img src="@routes.Assets.at(sort.getPicturePath())" width="270px" height="180px">
                     <p class="text-center">@sort.getName</p>

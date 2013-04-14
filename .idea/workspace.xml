@@ -4,20 +4,20 @@
     <list default="true" id="108447ed-937e-4924-a808-9dbdcfc0258f" name="Default" comment="" />
     <ignored path="Pizzeria.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/main.scala.html" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365846716725" ignored="false" />
+    <file path="/main.scala.html" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365967452074" ignored="false" />
     <file path="$PROJECT_DIR$/target/scala-2.9.1/src_managed/main/views/html/main.template.scala" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365022332278" ignored="false" />
-    <file path="/index.scala.html" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365941830213" ignored="false" />
+    <file path="/index.scala.html" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365958613590" ignored="false" />
     <file path="/fragment.java" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365191094603" ignored="false" />
     <file path="/a.dummy" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1364978158991" ignored="false" />
-    <file path="$PROJECT_DIR$/target/scala-2.9.1/src_managed/main/views/html/index.template.scala" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365941866983" ignored="false" />
-    <file path="/main.css" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365941855219" ignored="false" />
-    <file path="/menu.scala.html" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365873467907" ignored="false" />
-    <file path="/Application.java" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365894117839" ignored="false" />
-    <file path="/routes" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365017053490" ignored="false" />
-    <file path="$PROJECT_DIR$/target/scala-2.9.1/src_managed/main/routes_reverseRouting.scala" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365153273320" ignored="false" />
-    <file path="$PROJECT_DIR$/target/scala-2.9.1/src_managed/main/routes_routing.scala" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365017184443" ignored="false" />
-    <file path="$PROJECT_DIR$/target/scala-2.9.1/src_managed/main/controllers/routes.java" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365153273320" ignored="false" />
-    <file path="/application.conf" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365194415674" ignored="false" />
+    <file path="$PROJECT_DIR$/target/scala-2.9.1/src_managed/main/views/html/index.template.scala" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365959427786" ignored="false" />
+    <file path="/main.css" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365970569016" ignored="false" />
+    <file path="/menu.scala.html" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365966484907" ignored="false" />
+    <file path="/Application.java" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365967359402" ignored="false" />
+    <file path="/routes" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365967400501" ignored="false" />
+    <file path="$PROJECT_DIR$/target/scala-2.9.1/src_managed/main/routes_reverseRouting.scala" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365967424418" ignored="false" />
+    <file path="$PROJECT_DIR$/target/scala-2.9.1/src_managed/main/routes_routing.scala" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365967424418" ignored="false" />
+    <file path="$PROJECT_DIR$/target/scala-2.9.1/src_managed/main/controllers/routes.java" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365967424418" ignored="false" />
+    <file path="/application.conf" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365958218517" ignored="false" />
     <file path="C:/play-2.0.4/samples/java/helloworld/conf/META-INF/persistence.tld" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365155073771" ignored="false" />
     <file path="/DishSort.java" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365291127638" ignored="false" />
     <file path="$PROJECT_DIR$/target/scala-2.9.1/classes_managed/views/html/index.class" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365157288066" ignored="false" />
@@ -28,6 +28,8 @@
     <file path="/__dummy.js" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365538499848" ignored="false" />
     <file path="$PROJECT_DIR$/logs/application.log" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365894917327" ignored="false" />
     <file path="/DishSortDao.java" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365894512314" ignored="false" />
+    <file path="/basket.scala.html" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365969839271" ignored="false" />
+    <file path="$PROJECT_DIR$/target/scala-2.9.1/src_managed/main/views/html/basket.template.scala" changelist="108447ed-937e-4924-a808-9dbdcfc0258f" time="1365969898473" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,46 +98,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.scala.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.scala.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/index.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="40" selection-start="144" selection-end="144" vertical-scroll-proportion="0.12523021">
+            <state line="13" column="27" selection-start="639" selection-end="639" vertical-scroll-proportion="-8.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.scala.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/menu.scala.html">
+      <file leaf-file-name="GenericDaoJPAImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/daos/GenericDaoJPAImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="0" selection-start="1275" selection-end="1275" vertical-scroll-proportion="0.0">
+            <state line="29" column="46" selection-start="648" selection-end="648" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
+      <file leaf-file-name="basket.scala.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/basket.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="18" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.0">
+            <state line="21" column="52" selection-start="685" selection-end="685" vertical-scroll-proportion="-13.730769">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Application.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/Application.java">
+      <file leaf-file-name="routes" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conf/routes">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="102" selection-start="966" selection-end="966" vertical-scroll-proportion="0.0">
+            <state line="7" column="68" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DishSortDao.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/daos/DishSortDao.java">
+      <file leaf-file-name="main.scala.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/main.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="36" selection-start="530" selection-end="530" vertical-scroll-proportion="0.0">
+            <state line="17" column="36" selection-start="736" selection-end="736" vertical-scroll-proportion="0.65384614">
               <folding />
             </state>
           </provider>
@@ -150,19 +152,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.scala.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/main.scala.html">
+      <file leaf-file-name="main.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="93" selection-start="1542" selection-end="1542" vertical-scroll-proportion="0.0">
+            <state line="114" column="0" selection-start="1483" selection-end="1483" vertical-scroll-proportion="2.698905">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenericDaoJPAImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/daos/GenericDaoJPAImpl.java">
+      <file leaf-file-name="menu.scala.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/menu.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="60" selection-start="245" selection-end="273" vertical-scroll-proportion="0.0">
+            <state line="13" column="91" selection-start="473" selection-end="534" vertical-scroll-proportion="-8.5">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Application.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Application.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="70" column="35" selection-start="1802" selection-end="1802" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -178,20 +189,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/conf/routes" />
-        <option value="$PROJECT_DIR$/project/Build.scala" />
         <option value="$PROJECT_DIR$/app/daos/GenericDaoHibernateImpl.java" />
         <option value="$PROJECT_DIR$/app/daos/GenericDao.java" />
         <option value="$PROJECT_DIR$/conf/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/app/models/DishSort.java" />
         <option value="$PROJECT_DIR$/app/models/Dish.java" />
-        <option value="$PROJECT_DIR$/app/views/main.scala.html" />
-        <option value="$PROJECT_DIR$/app/views/menu.scala.html" />
         <option value="$PROJECT_DIR$/app/daos/GenericDaoJPAImpl.java" />
         <option value="$PROJECT_DIR$/app/daos/DishSortDao.java" />
-        <option value="$PROJECT_DIR$/app/controllers/Application.java" />
         <option value="$PROJECT_DIR$/conf/application.conf" />
         <option value="$PROJECT_DIR$/app/views/index.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/menu.scala.html" />
+        <option value="$PROJECT_DIR$/app/daos/basket.scala.html" />
+        <option value="$PROJECT_DIR$/app/controllers/Application.java" />
+        <option value="$PROJECT_DIR$/conf/routes" />
+        <option value="$PROJECT_DIR$/app/views/main.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/basket.scala.html" />
         <option value="$PROJECT_DIR$/public/stylesheets/main.css" />
       </list>
     </option>
@@ -230,6 +242,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -427,7 +440,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -458,6 +470,7 @@
       <recent name="F:\Play Framework Projects\Pizzeria\public\stylesheets\bootstrap" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\GitHub\Pizzeria\app\views" />
       <recent name="F:\Play Framework Projects\Pizzeria\conf" />
       <recent name="C:\Users\User\Documents\GitHub\Pizzeria\public\stylesheets" />
     </key>
@@ -599,6 +612,10 @@
       <setting name="play2NonDefaultInstallDir" value="" />
       <setting name="play2isAutoReloadEnabled" value="false" />
       <RunnerSettings RunnerId="Play2AppRunner" />
+      <RunnerSettings RunnerId="Play2AppRunner" />
+      <RunnerSettings RunnerId="Play2AppRunner" />
+      <ConfigurationWrapper RunnerId="Play2AppRunner" />
+      <ConfigurationWrapper RunnerId="Play2AppRunner" />
       <ConfigurationWrapper RunnerId="Play2AppRunner" />
       <method />
     </configuration>
@@ -622,31 +639,51 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19772728" sideWeight="0.3210084" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.67058825" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3226891" sideWeight="0.49772727" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31764707" sideWeight="0.5007576" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19772728" sideWeight="0.3210084" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277311" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19772728" sideWeight="0.31932774" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19772728" sideWeight="0.3210084" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19772728" sideWeight="0.6789916" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31764707" sideWeight="0.4969697" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31764707" sideWeight="0.49924242" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -720,13 +757,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/DishSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="38" selection-start="1050" selection-end="1050" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/bootstrap/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1474" column="2" selection-start="22363" selection-end="22363" vertical-scroll-proportion="-2.054945" />
@@ -754,23 +784,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/menu.scala.html">
+    <entry file="file://$PROJECT_DIR$/app/daos/DishSortDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="1275" selection-end="1275" vertical-scroll-proportion="0.0">
+        <state line="22" column="36" selection-start="530" selection-end="530" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/main.scala.html">
+    <entry file="file://$PROJECT_DIR$/conf/application.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="93" selection-start="1542" selection-end="1542" vertical-scroll-proportion="0.0">
+        <state line="36" column="24" selection-start="1073" selection-end="1073" vertical-scroll-proportion="0.18978103">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/routes">
+    <entry file="file://$PROJECT_DIR$/app/controllers/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="68" selection-start="207" selection-end="237" vertical-scroll-proportion="0.0">
+        <state line="70" column="35" selection-start="1802" selection-end="1802" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -782,44 +812,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/basket.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="52" selection-start="685" selection-end="685" vertical-scroll-proportion="-13.730769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/daos/GenericDaoJPAImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="60" selection-start="245" selection-end="273" vertical-scroll-proportion="0.0">
+        <state line="29" column="46" selection-start="648" selection-end="648" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/daos/DishSortDao.java">
+    <entry file="file://$PROJECT_DIR$/conf/routes">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="36" selection-start="530" selection-end="530" vertical-scroll-proportion="0.0">
+        <state line="7" column="68" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/application.conf">
+    <entry file="file://$PROJECT_DIR$/app/views/main.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="1" selection-start="1050" selection-end="1050" vertical-scroll-proportion="0.18941504">
+        <state line="17" column="36" selection-start="736" selection-end="736" vertical-scroll-proportion="0.65384614">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Application.java">
+    <entry file="file://$PROJECT_DIR$/app/views/menu.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="102" selection-start="966" selection-end="966" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="18" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.0">
+        <state line="13" column="91" selection-start="473" selection-end="534" vertical-scroll-proportion="-8.5">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/index.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="40" selection-start="144" selection-end="144" vertical-scroll-proportion="0.12523021">
+        <state line="13" column="27" selection-start="639" selection-end="639" vertical-scroll-proportion="-8.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="0" selection-start="1483" selection-end="1483" vertical-scroll-proportion="2.698905">
           <folding />
         </state>
       </provider>
