@@ -62,24 +62,24 @@ public class Dish {
     }
 
     @Column(name = "weight")
-    private float weight;
+    private int weight;
 
-    public float getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeight(float weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
     @Column(name = "price")
-    private float price;
+    private int price;
 
-    public float getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

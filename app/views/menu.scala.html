@@ -1,3 +1,5 @@
+@(sortId: scala.Int, dishes: List[models.Dish], selectedItems: List[scala.Int])
+
 @main(Html("Pizza")){
     <div class="row" id="menu-bar">
         <div class="span12">
@@ -9,22 +11,18 @@
 
     <ul class="thumbnails">
         <div class="row">
-            <li class="span4 offset1">
-                <a href="#" class="thumbnail">
-                    <img src="@routes.Assets.at("images/titlesformainpage/pizza_title.jpg")" width="270px" height="180px">
-                    <p class="text-center" id="dish-name">Пицца1</p>
-                    <p class="text-center" id="dish-weight">680 г</p>
-                    <p class="text-center" id="dish-cost">240 руб</p>
-                </a>
-            </li>
-            <li class="span4 offset2">
-                <a href="#" class="thumbnail">
-                    <img src="@routes.Assets.at("images/titlesformainpage/hot_title1.jpg")" width="270px" height="180px">
-                    <p class="text-center" id="dish-name">Пицца2</p>
-                    <p class="text-center" id="dish-weight">800 г</p>
-                    <p class="text-center" id="dish-cost">350 руб</p>
-                </a>
-            </li>
+        @for(dish <-  dishes.seq) {
+                <!--<li class="span4 offset1">-->
+                <li class="span4">
+                    <a href="#" class="thumbnail">
+                        <!--Где-то здесь должен быть выбор цвета и надписи кнопки добавления в корзину или еще чего в зависимости от того, есть это блюдо в корзине или нет-->
+                        <img src="@routes.Assets.at(dish.getPicturePath())" width="270px" height="180px">
+                        <p class="text-center" id="dish-name">@dish.getName()</p>
+                        <p class="text-center" id="dish-weight">@dish.getWeight() г</p>
+                        <p class="text-center" id="dish-cost">@dish.getPrice() руб</p>
+                    </a>
+                </li>
+        }
         </div>
     </ul>
 }
