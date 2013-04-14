@@ -81,4 +81,8 @@ public class Application extends Controller {
     public static Result user(Long id){
         return ok("You selected id = "+id);
     }
+
+    public static Result cart(){
+        return ok(cart.render());
+    }
 }

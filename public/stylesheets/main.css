@@ -1,7 +1,13 @@
+/***
+    for main.scala.html
+***/
+
 footer{
     position: relative;
     bottom: -70px;
 }
+
+/* Header*/
 
 .phone_number{
     font-family: 'Century Gothic', 'Times New Roman', serif;
@@ -29,10 +35,33 @@ footer{
     text-decoration: none;
 }
 
+/* Header */
+
+
+/***
+    for index.scala.html
+***/
 .carousel {
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
+#index_t{
+    margin-left: 0px;
+}
+
+#index_s{
+    margin-top: 50px;
+}
+
+.button{
+    margin-top: 20px;
+    height: 25px;
+    width: 101px;
+}
+
+/***
+    for menu.scala.html
+***/
 #menu-bar{
     position: relative;
     top: 20px;
@@ -60,9 +89,8 @@ footer{
     font-family: 'Century Gothic', 'Times New Roman', serif;
 }
 
-.thumbnails{
-    margin-top: 50px;
-    border: none;
+#menu_thumbnails{
+    margin-top: 70px;
 }
 
 #dish-name{
@@ -80,6 +108,36 @@ footer{
     font-weight: bold;
 }
 
-#index_t{
-    margin-left: 0px;
+/***
+    for cart.scala.html
+***/
+
+#cart-header{
+    margin-top: 60px;
+    font-family: 'AGUniversityCyr-Roman', serif;
+    font-size: 30pt;
+    color: firebrick;
+}
+
+#cart-row1 p{
+    margin-left: 50px;
+    margin-top: 50px;
+    font-family: 'Century Gothic', 'Times New Roman', serif;
+    font-size: 18pt;
+}
+
+#cart-row2{
+    margin-top: 40px;
+    margin-left: 60px;
+    color: green;
+    font-family: 'Century Gothic', 'Times New Roman', serif;
+    font-size: 18pt;
+}
+
+#cart-row3{
+    margin-top: 50px;
+    margin-left: 60px;
+    color: firebrick;
+    font-family: 'Century Gothic', 'Times New Roman', serif;
+    font-size: 18pt;
 }

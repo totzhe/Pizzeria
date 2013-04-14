@@ -8,14 +8,14 @@
             <li data-target="#myCarousel" data-slide-to="2"></li>
             <li data-target="#myCarousel" data-slide-to="3"></li>
         </ol>
-            <!-- Carousel items -->
+        <!-- Carousel items -->
         <div class="carousel-inner">
             <div class="active item"><img src="@routes.Assets.at("images/pizza11.jpg")"alt=""></div>
             <div class="item"><img src="@routes.Assets.at("images/pizza133ital.jpg")" alt=""></div>
             <div class="item"><img src="@routes.Assets.at("images/telatjigo1.jpg")" alt=""></div>
             <div class="item"><img src="@routes.Assets.at("images/desert1.jpg")" alt=""></div>
         </div>
-            <!-- Carousel nav -->
+        <!-- Carousel nav -->
         <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
         <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div>
@@ -23,8 +23,8 @@
     <ul class="thumbnails" id=index_t>
         <div class="row">
         @for(sort <-  sorts.seq) {
-            <li class="span4">
-                <a href="@routes.Application.user(sort.getId())" class="thumbnail" id="@sort.getId()">
+            <li class="span4" id="index_s">
+                <a href="@routes.Application.user(sort.getId())" class="thumbnail">
                     <img src="@routes.Assets.at(sort.getPicturePath())" width="270px" height="180px">
                     <p class="text-center">@sort.getName</p>
                 </a>
@@ -46,18 +46,18 @@
     <script type="text/javascript">
         //jQuery("#items a").click(
         jQuery("#index_t a").click( //реагирует на щелчок по атрибуту "a" элемента с id=#index_t
-        function ()
-        {  //функция-обработчик click
-        //var clickId = this.id; //получение id элемента, вызвавшего обработчик
-        var text = $(this).children(".text-center");
-        $.get(jQuery(this).attr("href"), function (data) //передается функция-обработчик результата get
-        {         //ее описание
+            function ()
+            {  //функция-обработчик click
+                //var clickId = this.id; //получение id элемента, вызвавшего обработчик
+                var text = $(this).children(".text-center");
+                $.get(jQuery(this).attr("href"), function (data) //передается функция-обработчик результата get
+                    {         //ее описание
 
-        text.html(data);
-        //$("a#"+clickId+" .text-center").html(data + " Hello"); //data - данные, полученные от сервера     - второй способ, менее красивый, через айди
-        });
-        return false;
-        }
+                    text.html(data);
+                    //$("a#"+clickId+" .text-center").html(data + " Hello"); //data - данные, полученные от сервера     - второй способ, менее красивый, через айди
+                    });
+                return false;
+            }
         )
     </script>
 
@@ -75,15 +75,15 @@
         )
     </script> -->
 
-<!--Пример подгрузки страницы-->
-<script type="text/javascript">
-    jQuery("#menu").click(function ()
-        {
-            $.get("/menu", function (data) //передается функция-обработчик результата get
-                {         //ее описание
-                    $("body").html(data);
-                });
-            return false;
-        }
-    )
-</script>
+    <!--Пример подгрузки страницы-->
+    <script type="text/javascript">
+        jQuery("#menu").click(function ()
+            {
+                $.get("/menu", function (data) //передается функция-обработчик результата get
+                    {         //ее описание
+                        $("body").html(data);
+                    });
+                return false;
+            }
+        )
+    </script>
