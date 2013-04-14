@@ -96,10 +96,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.scala.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.scala.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/index.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="38" selection-start="1213" selection-end="1213" vertical-scroll-proportion="-5.230769">
+            <state line="23" column="38" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.38418078">
               <folding />
             </state>
           </provider>
@@ -114,10 +114,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="18" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.8657895">
+            <state line="83" column="18" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -623,7 +623,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -810,16 +810,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/index.scala.html">
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="38" selection-start="1213" selection-end="1213" vertical-scroll-proportion="-5.230769">
+        <state line="83" column="18" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
+    <entry file="file://$PROJECT_DIR$/app/views/index.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="18" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.8657895">
+        <state line="23" column="38" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.38418078">
           <folding />
         </state>
       </provider>
