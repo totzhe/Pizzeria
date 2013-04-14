@@ -63,7 +63,18 @@ public class Application extends Controller {
         return ok(index.render(dao1.getAll()));
     }
 
+    @Transactional
     public static Result menu() {
-        return ok(menu.render());
+        Dish d;
+        GenericDaoJPAImpl<Dish, Integer> dao = new GenericDaoJPAImpl<Dish, Integer>(Dish.class);
+
+        //change dish sort
+        d = dao.read(1);
+        List<Dish> dishes = new LinkedList<Dish>();
+        for(int i = 1; i < 7; i++)
+        {
+            dishes.add(d);
+        }
+        return ok(menu.render(0, dishes, null));
     }
 }
