@@ -24,7 +24,7 @@
         <div class="row">
         @for(sort <-  sorts.seq) {
             <li class="span4">
-                <a href="#" class="thumbnail">
+                <a href="@routes.Application.user(sort.getId())" class="thumbnail" id="@sort.getId()">
                     <img src="@routes.Assets.at(sort.getPicturePath())" width="270px" height="180px">
                     <p class="text-center">@sort.getName</p>
                 </a>
@@ -40,3 +40,50 @@
             })
     </script>
 }
+
+
+    <!-- Пример присвоения данных, полученных от сервера -->
+    <script type="text/javascript">
+        //jQuery("#items a").click(
+        jQuery("#index_t a").click( //реагирует на щелчок по атрибуту "a" элемента с id=#index_t
+        function ()
+        {  //функция-обработчик click
+        //var clickId = this.id; //получение id элемента, вызвавшего обработчик
+        var text = $(this).children(".text-center");
+        $.get(jQuery(this).attr("href"), function (data) //передается функция-обработчик результата get
+        {         //ее описание
+
+        text.html(data);
+        //$("a#"+clickId+" .text-center").html(data + " Hello"); //data - данные, полученные от сервера     - второй способ, менее красивый, через айди
+        });
+        return false;
+        }
+        )
+    </script>
+
+
+    <!-- Пример удаления элементов
+    <script type="text/javascript">
+        //jQuery("#items a").click(
+        jQuery("#index_t .span4").click( //реагирует на щелчок по атрибуту "a" элемента с id=#index_t
+        function ()
+        {
+            $(this).remove()
+            //$(this).replaceWith("1");
+            return false;
+        }
+        )
+    </script> -->
+
+<!--Пример подгрузки страницы-->
+<script type="text/javascript">
+    jQuery("#menu").click(function ()
+        {
+            $.get("/menu", function (data) //передается функция-обработчик результата get
+                {         //ее описание
+                    $("body").html(data);
+                });
+            return false;
+        }
+    )
+</script>

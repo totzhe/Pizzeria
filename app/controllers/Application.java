@@ -77,4 +77,8 @@ public class Application extends Controller {
         }
         return ok(menu.render(0, dishes, null));
     }
+
+    public static Result user(Long id){
+        return ok("You selected id = "+id);
+    }
 }
