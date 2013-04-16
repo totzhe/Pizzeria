@@ -1,23 +1,57 @@
+@(dishes: List[models.Dish]/*, orderForm: Form[User]*/)
+
+@import helper._
+@import helper.twitterBootstrap._
 
 @main(Html("Pizza")){
     <div class="row" id="cart-header">
         <strong><p class="text-center"> Корзина </p></strong>
     </div>
 
-    <div class="row" id="cart-row">
-        <div class="span1" id="cart-row1">
-            <p class="text-center"> 1. </p>
+    @for(dish <- dishes.seq){
+        <div class="row" id="cart-row">
+            <div class="span3">
+                <img src="@routes.Assets.at(dish.getPicturePath())">
+            </div>
+            <div class="span4"  id="cart-row2">
+                <p class="text-center"> @dish.getName() </p> <br>
+                <p class="text-center"> @dish.getPrice() руб./шт.</p>
+            </div>
+            <div class="span2">
+                <input type="number" min="0" max="10" step="1" value="1" id="stepper">
+            </div>
+            <div class="span2" id="cart-row3">
+               <div id="text_next_stepper">@dish.getPrice() руб.</div>
+            </div>
         </div>
-        <div class="span3">
-            <img src="@routes.Assets.at("images/titlesformainpage/pizza_title.jpg")">
+    }
+
+    <div class="row">
+        <div class="span7 offset6" id="cart-buttons">
+            <!--<input type="image" src="@routes.Assets.at("images/buttons/dark_green_button_return.png")" class="button"id="cart-return-button">-->
+            <!--<input type="image" data-toggle="modal" data-target="#myModal" src="@routes.Assets.at("images/buttons/red_button_checkout.png")" class="button"id="cart-checkout-button">-->
+            <button class="btn btn-large btn-danger" id="cart-return-button">Вернуться к покупкам</button>
+            <button class="btn btn-large btn-success" data-toggle="modal" data-target="#myModal" id="cart-checkout-button"> Оформить заказ </button>
+            <!--<a href="#myModal" role="button" class="btn" data-toggle="modal" id="cart-checkout-button">Launch demo modal</a>-->
         </div>
-        <div class="span4"  id="cart-row2">
-            <p class="text-center"> Пицца1 </p> <br>
-            <p class="text-center"> 240 руб./шт. </p>
+    </div>
+
+    <!-- Button to trigger modal -->
+    <!--<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>-->
+
+    <!-- Modal -->
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h2 id="myModalLabel">Оформление заказа</h2>
         </div>
-        <div class="span2" id="cart-row3">
-            <input type="number" min="0" max="10" step="1" value="1" id="stepper">
-            <p class="text-center" id="cart-row3"> 240 руб. </p>
+        <div class="modal-body">
+
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-large btn-danger" data-dismiss="modal" aria-hidden="true">Закрыть</button>
+            <button class="btn btn-large btn-success">Отправить</button>
         </div>
     </div>
 }

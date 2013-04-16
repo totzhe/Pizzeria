@@ -4,10 +4,13 @@ import daos.DishSortDao;
 import daos.GenericDaoJPAImpl;
 import models.*;
 import play.*;
+import play.api.templates.Html;
+import play.data.Form;
 import play.db.jpa.*;
 import play.mvc.*;
 
 import views.html.*;
+import views.html.helper.form;
 
 import javax.persistence.criteria.*;
 import java.util.LinkedList;
@@ -82,7 +85,38 @@ public class Application extends Controller {
         return ok("You selected id = "+id);
     }
 
+    //final static Form<User> orderForm = form(User.class);
+
+    /*public static Result blank() {
+        return ok(form.render(orderForm));
+    } */
+
+    @Transactional
     public static Result cart(){
-        return ok(cart.render());
+        Dish d;
+        GenericDaoJPAImpl<Dish, Integer> dao = new GenericDaoJPAImpl<Dish, Integer>(Dish.class);
+
+        //change dish sort
+        d = dao.read(1);
+        List<Dish> dishes = new LinkedList<Dish>();
+        for(int i = 1; i < 4; i++)
+        {
+            dishes.add(d);
+        }
+
+        //User defaulUser = new User("name", "address", new User.Phone("01.23.45.67.89"));
+
+        return ok(cart.render(dishes)/*, form.render(orderForm.fill(defaulUser))*/);
     }
+
+    /*public static Result submit() {
+        Form<User> filledForm = orderForm.bindFromRequest();
+
+        if(filledForm.hasErrors()) {
+            return badRequest(form.render(filledForm));
+        } else {
+            User created = filledForm.get();
+            return ok();
+        }
+    } */
 }
