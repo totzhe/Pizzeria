@@ -7,6 +7,10 @@ GET     /                           controllers.Application.index()
 GET     /menu                       controllers.Application.menu()
 GET   /user-name-ajax/:id     controllers.Application.user(id:Long)
 GET     /cart                     controllers.Application.cart()
+POST     /JsonExample                      controllers.Application.JsonExample()
+GET     /JsonExample                      controllers.Application.JsonExampleGET()
+POST     /JsonExamplePOST                      controllers.Application.JsonExamplePOST()
+GET    /assets/javascripts/routes   controllers.Application.javascriptRoutes()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

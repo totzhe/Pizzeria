@@ -24,7 +24,7 @@ public class Dish {
 
     /*public void setId(int id) {
         this.id = id;
-    }  */
+    }*/
 
     /*@Column(name = "sort_id")
     private int sortId;
@@ -34,7 +34,7 @@ public class Dish {
 
     public void setSortId(int id) {
         this.sortId = id;
-    } */
+    }*/
 
     /*@ManyToOne
         @Id

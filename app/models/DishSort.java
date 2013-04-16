@@ -49,7 +49,6 @@ public class DishSort {
     public void setPicturePath(String picturePath) {
         this.picturePath = picturePath;
     }
-
     @OneToMany(fetch=FetchType.LAZY)
     @JoinColumn(name="sort_id")
     @OrderBy("id ASC")

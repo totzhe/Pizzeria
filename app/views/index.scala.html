@@ -1,5 +1,6 @@
 @(sorts: List[models.DishSort])
 
+
 @main(Html("Pizza")){
     <div id="myCarousel" class="carousel slide">
         <ol class="carousel-indicators">
@@ -20,11 +21,15 @@
         <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div>
 
+    <input type="button" class="button" name="magic_button" value="Json" id="JsonBOTH">
+    <input type="button" class="button" name="magic_button" value="JsonFromServer" id="JsonGET">
+    <input type="button" class="button" name="magic_button" value="JsonToServer" id="JsonPOST">
+
     <ul class="thumbnails" id=index_t>
         <div class="row">
         @for(sort <-  sorts.seq) {
             <li class="span4" id="index_s">
-                <a href="@routes.Application.user(sort.getId())" class="thumbnail">
+                <a href="@routes.Application.user(sort.getId)" id="@sort.getId" class="thumbnail">
                     <img src="@routes.Assets.at(sort.getPicturePath())" width="270px" height="180px">
                     <p class="text-center">@sort.getName</p>
                 </a>
@@ -44,18 +49,20 @@
 
     <!-- Пример присвоения данных, полученных от сервера -->
     <script type="text/javascript">
-        //jQuery("#items a").click(
-        jQuery("#index_t a").click( //реагирует на щелчок по атрибуту "a" элемента с id=#index_t
+        jQuery("#index_t a").click(
             function ()
             {  //функция-обработчик click
-                //var clickId = this.id; //получение id элемента, вызвавшего обработчик
+                var sortId = this.id; //получение id элемента, вызвавшего обработчик
                 var text = $(this).children(".text-center");
-                $.get(jQuery(this).attr("href"), function (data) //передается функция-обработчик результата get
-                    {         //ее описание
-
-                    text.html(data);
-                    //$("a#"+clickId+" .text-center").html(data + " Hello"); //data - данные, полученные от сервера     - второй способ, менее красивый, через айди
-                    });
+                //var id = $(this).attr("id");
+                jsRoutes.controllers.Application.user(sortId).ajax({
+                    success: function(data) {
+                        text.html(data);
+                    },
+                    error: function() {
+                        alert("Error!")
+                    }
+                })
                 return false;
             }
         )
@@ -87,3 +94,142 @@
             }
         )
     </script>
+
+    <!--<script type="text/javascript">
+        $(document).ready(function(){              // по окончанию загрузки страницы
+            /*$('#example-1').click(function(){      // вешаем на клик по элементу с id = example-1
+                $(this).load('ajax/example.html'); // загрузку HTML кода из файла example.html
+            })*/
+            //$("body").html(123);
+        $.get("/menu", function (data) //передается функция-обработчик результата get
+        {         //ее описание
+        //$(this).load(data);
+        $("body").html(data);
+        });
+        });
+    </script>  -->
+
+    <!--
+    <script type="text/javascript">
+    function authenticate(userName, password) {
+        $.ajax
+        ({
+            type: "POST",
+            //the url where you want to sent the userName and password to
+            url: '',
+            dataType: 'json',
+            async: false,
+            //json object to sent to the authentication url
+            data: '{"userName": "' + userName + '", "password" : "' + password + '"}',
+            success: function () {
+
+                alert("Thanks!");
+            }
+        })
+    }
+    </script>
+    <script type="text/javascript">
+        $('#magic').click(function(){                    // вешаем на клик по элементу с id = example-4
+            $.getJSON('/tasks', {}, function(json){  // загрузку JSON данных из файла example.json
+                $('body').html('');
+                // заполняем DOM элемент данными из JSON объекта
+                $('body').append('To: '   + json.note.id + '<br/>')
+                //.append('From: ' + json.note.from + '<br/>')
+                //.append('<b>'    + json.note.heading + '</b><br/>')
+                //.append(           json.note.body + '<br/>');
+            //});
+        })
+    </script> -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#JsonBOTH"). click(function(){
+                var jsonToSend = {};
+                jsonToSend.name = "HELLOWORLD";
+                var outputData = JSON.stringify(jsonToSend);
+                jsRoutes.controllers.Application.JsonExample().ajax({
+                    type: "POST",
+                    data:outputData,
+                    dataType: 'text',   //тип ответа
+                    contentType:'application/json',
+                    success: function(data) {
+                        alert(data);
+                    },
+                    error: function() {
+                        alert("Error!");
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#JsonGET"). click(function(){
+                jsRoutes.controllers.Application.JsonExampleGET().ajax({
+                    type: "GET",
+                    data:null,
+                    dataType: 'json',   //тип ответа
+                    success: function(data) {
+                        alert(data);
+                        //data = $.parseJSON(data);
+                        //alert(data);
+                        $.each(data, function() {
+                            alert(this.id + " " + this.name + " " + this.picturePath);
+                            /*$.each(this, function(key, value) {
+                                alert(this);
+                            }); */
+                        });
+                    },
+                    error: function() {
+                        alert("Error!");
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#JsonPOST"). click(function(){
+                var jsonToSend = {};
+                jsonToSend.name = "HELLOWORLD";
+                var outputData = JSON.stringify(jsonToSend);
+                jsRoutes.controllers.Application.JsonExample().ajax({
+                    type: "POST",
+                    data:outputData,
+                    dataType: 'text',   //тип ответа
+                    contentType:'application/json',
+                    success: function(data) {
+                        alert(data);
+                    },
+                    error: function() {
+                        alert("Error!");
+                    }
+                });
+            });
+        });
+    </script>
+    <!--
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#sendJson"). click(function(){
+            var value = "12345";
+            var jsonToSend = {};
+            jsonToSend.name = "hi";
+            var outputData = JSON.stringify(jsonToSend);
+            jsRoutes.controllers.Application.getJsonExample().ajax({
+            type: "POST",
+            data:outputData,
+            dataType: 'text',
+            contentType:'application/json',
+            success: function(data) {
+            alert(data);
+            },
+            error: function() {
+            alert("Error!");
+            }
+            });
+            });
+        });
+    </script>
+    -->

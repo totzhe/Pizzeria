@@ -3,10 +3,13 @@ package controllers;
 import daos.DishSortDao;
 import daos.GenericDaoJPAImpl;
 import models.*;
+import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.node.ObjectNode;
 import play.*;
 import play.api.templates.Html;
 import play.data.Form;
 import play.db.jpa.*;
+import play.libs.Json;
 import play.mvc.*;
 
 import views.html.*;
@@ -15,6 +18,15 @@ import views.html.helper.form;
 import javax.persistence.criteria.*;
 import java.util.LinkedList;
 import java.util.List;
+
+import static play.libs.Json.toJson;
+
+import play.mvc.Controller;
+import play.mvc.Result;
+import play.mvc.BodyParser;
+import play.libs.Json.*;
+import flexjson.JSONSerializer;
+
 
 public class Application extends Controller {
 
@@ -51,10 +63,10 @@ public class Application extends Controller {
         GenericDaoJPAImpl<Dish, Integer> dao = new GenericDaoJPAImpl<Dish, Integer>(Dish.class);
 
         //change dish sort
-        d = dao.read(1);
+        /*d = dao.read(1);
         d.getSort();
         d.setSort(ds);
-        dao.update(d);
+        dao.update(d);*/
 
         /*List<DishSort> sorts = new LinkedList<DishSort>();
         for(int i = 1; i < 7; i++)
@@ -91,6 +103,48 @@ public class Application extends Controller {
         return ok(form.render(orderForm));
     } */
 
+    @BodyParser.Of(play.mvc.BodyParser.Json.class)
+    @Transactional
+    public static Result JsonExample() {
+        response().setContentType("application/json");
+        JsonNode json = request().body().asJson();
+        if(json == null) {
+            return badRequest("Expecting Json data");
+        } else {
+            String name = json.findPath("name").getTextValue();
+            if(name == null) {
+                return badRequest("Missing parameter [name]");
+            } else {
+                List<DishSort> sorts = new DishSortDao(DishSort.class).getAll();
+                JSONSerializer serializer = new JSONSerializer().exclude("dishes", "class");
+                return ok("Server received: " + json.toString() + System.getProperty("line.separator") + "Server sent: " + serializer.serialize(sorts));
+            }
+        }
+    }
+
+    @BodyParser.Of(play.mvc.BodyParser.Json.class)
+    public static Result JsonExamplePOST() {
+        response().setContentType("application/json");
+        JsonNode json = request().body().asJson();
+        if(json == null) {
+            return badRequest("Expecting Json data");
+        } else {
+            String name = json.findPath("name").getTextValue();
+            if(name == null) {
+                return badRequest("Missing parameter [name]");
+            } else {
+                return ok("Server received: " + json.toString());
+            }
+        }
+    }
+
+    @Transactional
+    public static Result JsonExampleGET() {
+        List<DishSort> sorts = new DishSortDao(DishSort.class).getAll();
+        JSONSerializer serializer = new JSONSerializer().exclude("dishes", "class");
+        return ok(serializer.serialize(sorts));
+    }
+
     @Transactional
     public static Result cart(){
         Dish d;
@@ -119,4 +173,17 @@ public class Application extends Controller {
             return ok();
         }
     } */
+
+    public static Result javascriptRoutes() {
+        response().setContentType("text/javascript");
+        return ok(
+                Routes.javascriptRouter("jsRoutes",
+                        // Routes
+                        controllers.routes.javascript.Application.JsonExample(),
+                        controllers.routes.javascript.Application.JsonExampleGET(),
+                        controllers.routes.javascript.Application.JsonExamplePOST(),
+                        controllers.routes.javascript.Application.user()
+                )
+        );
+    }
 }
