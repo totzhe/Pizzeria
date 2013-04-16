@@ -14,7 +14,7 @@
         @for(dish <-  dishes.seq) {
                 <!--<li class="span4 offset1">-->
                 <li class="span4">
-                    <a href="#" class="thumbnail">
+                    <a href="#" class="thumbnail" id="menu_s">
                         <!--Где-то здесь должен быть выбор цвета и надписи кнопки добавления в корзину или еще чего в зависимости от того, есть это блюдо в корзине или нет-->
                         <img src="@routes.Assets.at(dish.getPicturePath())" width="270px" height="180px">
                         <p class="text-center" id="dish-name">@dish.getName()</p>

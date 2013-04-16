@@ -4,21 +4,19 @@
         <strong><p class="text-center"> Корзина </p></strong>
     </div>
 
-    <div class="row">
+    <div class="row" id="cart-row">
         <div class="span1" id="cart-row1">
             <p class="text-center"> 1. </p>
         </div>
         <div class="span3">
             <img src="@routes.Assets.at("images/titlesformainpage/pizza_title.jpg")">
         </div>
-        <div class="span3"  id="cart-row2">
+        <div class="span4"  id="cart-row2">
             <p class="text-center"> Пицца1 </p> <br>
             <p class="text-center"> 240 руб./шт. </p>
         </div>
-        <div class="span2">
-
-        </div>
-        <div class="span1">
+        <div class="span2" id="cart-row3">
+            <input type="number" min="0" max="10" step="1" value="1" id="stepper">
             <p class="text-center" id="cart-row3"> 240 руб. </p>
         </div>
     </div>
