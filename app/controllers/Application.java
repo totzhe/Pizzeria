@@ -1,100 +1,91 @@
 package controllers;
 
+import daos.DaoFactory;
 import daos.DishSortDao;
-import daos.GenericDaoJPAImpl;
+import daos.GenericDao;
+import flexjson.JSONDeserializer;
 import models.*;
 import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.node.ObjectNode;
 import play.*;
 import play.api.templates.Html;
 import play.data.Form;
 import play.db.jpa.*;
-import play.libs.Json;
-import play.mvc.*;
 
+import services.ServiceFactory;
 import views.html.*;
 import views.html.helper.form;
 
-import javax.persistence.criteria.*;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import static play.libs.Json.toJson;
 
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.BodyParser;
-import play.libs.Json.*;
 import flexjson.JSONSerializer;
 
 
 public class Application extends Controller {
-
-    @Transactional
+    @Transactional(readOnly = true)
     public static Result index() {
-
-        DishSort ds;// = JPA.em().find(DishSort.class, 1);
-        //Dish ds;
-
-        //List<DishSort> sorts = JPA.em().createQuery("SELECT e FROM DishSort e order by id").getResultList();
-
-        DishSortDao dao1 = new DishSortDao(DishSort.class);
-        //GenericDaoJPAImpl<Dish, Integer> dao = new GenericDaoJPAImpl<Dish, Integer>(Dish.class);
-
-
-        //read
-        ds = dao1.read(1);
-
-        //create
-        /*ds = new DishSort();
-        ds.setName("Hello World!");
-        dao.create(ds);   */
-
-        //update
-        /*ds.setName("12345");
-        dao.update(ds);*/
-
-        //delete
-        //dao.delete(ds);
-
-        //return ok(index.render(ds.getId(), ds.getName(), /*ds.getPicturePath()*/ds.dishes.get(0).getName()));
-
-        Dish d;
-        GenericDaoJPAImpl<Dish, Integer> dao = new GenericDaoJPAImpl<Dish, Integer>(Dish.class);
-
-        //change dish sort
-        /*d = dao.read(1);
-        d.getSort();
-        d.setSort(ds);
-        dao.update(d);*/
-
-        /*List<DishSort> sorts = new LinkedList<DishSort>();
-        for(int i = 1; i < 7; i++)
-        {
-            ds = dao1.read(i);
-            sorts.add(ds);
-        }  */
-        //return ok(index.render(ds.getId(), d.getName(), d.getSort().getName()));
-        return ok(index.render(dao1.getAll()));
+        return ok(index.render(ServiceFactory.getInstance().getShowMenuService().getDishSorts()));
     }
 
-    @Transactional
-    public static Result menu() {
-        Dish d;
-        GenericDaoJPAImpl<Dish, Integer> dao = new GenericDaoJPAImpl<Dish, Integer>(Dish.class);
+    static java.util.Random random = new java.util.Random();
 
-        //change dish sort
-        d = dao.read(1);
-        List<Dish> dishes = new LinkedList<Dish>();
-        for(int i = 1; i < 7; i++)
-        {
-            dishes.add(d);
+    @Transactional//(readOnly = true)
+    public static Result menu(int id) {
+        /*GenericDao<Order, Integer> dao = new GenericDao<Order, Integer>(Order.class);
+        Order o = new Order();
+        o.setCustomerName("Тестов Тест Тестович");
+        o.setCustomerAddress("ул. Тестовая, дом 0");
+        o.setCustomerPhone("+71234567890");
+        Date now = new Date();
+        o.setRecievingTime(now);
+        o.setSendingTime(now);
+        dao.create(o);
+        GenericDao<OrderItem, Integer> dao1 = new GenericDao<OrderItem, Integer>(OrderItem.class);
+        OrderItem oi = new OrderItem();
+        oi.setCost(50);
+        oi.setDish(DaoFactory.getInstance().getDishDao().read(1));
+        oi.setQuantity(1);
+        oi.setOrderId(1);
+        //dao1.create(oi);
+        o.getItems().add(oi);
+        //o.getItems().add(oi);
+        DaoFactory.getInstance().getOrderDao().create(o); */
+
+        //Нарандомить блюд
+        /*GenericDao<Dish, Integer> dao = new GenericDao<Dish, Integer>(Dish.class);
+        DishSortDao dao1 = new DishSortDao();
+        for (int i = 1; i < 7; i++) {
+            Dish d = new Dish();
+            DishSort ds = dao1.read(id);
+            d.setSort(ds);
+            d.setName(ds.getName() + i);
+            d.setDescription("Описание " + d.getName());
+            d.setIngredients("Состав " + d.getName());
+            d.setPicturePath("images/pizzas/null.jpg");
+            d.setWeight(random.nextInt(1500)%1200);
+            d.setPrice(random.nextInt(1500)%600);
+            dao.create(d);
+        } */
+        String data = session("order");
+        Order order = data == null ? new Order() : new JSONDeserializer<Order>().deserialize(data);
+        List<Integer> selectedItems = new LinkedList<Integer>();
+
+        for (Iterator<OrderItem> i = order.getItems().iterator(); i.hasNext(); ) {
+            OrderItem item = i.next();
+            selectedItems.add(item.getDishId());
         }
-        return ok(menu.render(0, dishes, null));
+        return ok(menu.render(id, ServiceFactory.getInstance().getShowMenuService().getDishSortById(id).getDishes(), selectedItems));
     }
 
-    public static Result user(Long id){
-        return ok("You selected id = "+id);
+    public static Result user(Long id) {
+        return ok("You selected id = " + id);
     }
 
     //final static Form<User> orderForm = form(User.class);
@@ -108,14 +99,14 @@ public class Application extends Controller {
     public static Result JsonExample() {
         response().setContentType("application/json");
         JsonNode json = request().body().asJson();
-        if(json == null) {
+        if (json == null) {
             return badRequest("Expecting Json data");
         } else {
             String name = json.findPath("name").getTextValue();
-            if(name == null) {
+            if (name == null) {
                 return badRequest("Missing parameter [name]");
             } else {
-                List<DishSort> sorts = new DishSortDao(DishSort.class).getAll();
+                List<DishSort> sorts = new DishSortDao().getAll();
                 JSONSerializer serializer = new JSONSerializer().exclude("dishes", "class");
                 return ok("Server received: " + json.toString() + System.getProperty("line.separator") + "Server sent: " + serializer.serialize(sorts));
             }
@@ -126,11 +117,11 @@ public class Application extends Controller {
     public static Result JsonExamplePOST() {
         response().setContentType("application/json");
         JsonNode json = request().body().asJson();
-        if(json == null) {
+        if (json == null) {
             return badRequest("Expecting Json data");
         } else {
             String name = json.findPath("name").getTextValue();
-            if(name == null) {
+            if (name == null) {
                 return badRequest("Missing parameter [name]");
             } else {
                 return ok("Server received: " + json.toString());
@@ -140,21 +131,20 @@ public class Application extends Controller {
 
     @Transactional
     public static Result JsonExampleGET() {
-        List<DishSort> sorts = new DishSortDao(DishSort.class).getAll();
+        List<DishSort> sorts = new DishSortDao().getAll();
         JSONSerializer serializer = new JSONSerializer().exclude("dishes", "class");
         return ok(serializer.serialize(sorts));
     }
 
     @Transactional
-    public static Result cart(){
+    public static Result cart() {
         Dish d;
-        GenericDaoJPAImpl<Dish, Integer> dao = new GenericDaoJPAImpl<Dish, Integer>(Dish.class);
+        GenericDao<Dish, Integer> dao = new GenericDao<Dish, Integer>(Dish.class);
 
         //change dish sort
         d = dao.read(1);
         List<Dish> dishes = new LinkedList<Dish>();
-        for(int i = 1; i < 4; i++)
-        {
+        for (int i = 1; i < 4; i++) {
             dishes.add(d);
         }
 
@@ -162,6 +152,7 @@ public class Application extends Controller {
 
         return ok(cart.render(dishes)/*, form.render(orderForm.fill(defaulUser))*/);
     }
+
 
     /*public static Result submit() {
         Form<User> filledForm = orderForm.bindFromRequest();
@@ -182,7 +173,9 @@ public class Application extends Controller {
                         controllers.routes.javascript.Application.JsonExample(),
                         controllers.routes.javascript.Application.JsonExampleGET(),
                         controllers.routes.javascript.Application.JsonExamplePOST(),
-                        controllers.routes.javascript.Application.user()
+                        controllers.routes.javascript.Application.user(),
+                        controllers.routes.javascript.OrderController.addItem(),
+                        controllers.routes.javascript.OrderController.removeItem()
                 )
         );
     }

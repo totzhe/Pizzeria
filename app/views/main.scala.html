@@ -15,27 +15,21 @@
     </head>
     <body>
         <div class="container" style="position: relative; top: 15px;">
-
             <header>
                 <div class="row">
                     <div class="span4">
-                        <a href="/"> <img  src="@routes.Assets.at("images/logo.png")"></a>
+                        <a href="/"><img src="@routes.Assets.at("images/logo.png")"></a>
                     </div>
                     <div class="span8">
                         <p class="phone_number">+7 (473) 222-33-44</p>
                         <p class="free_text">Доставка бесплатна</p>
                         <div class="row main_menu">
                             <div class="span12" id="header-menu">
-                                <a href="/menu">Доставка &nbsp&nbsp&nbsp</a>
-                                <a href="#">О компании &nbsp&nbsp&nbsp</a>
-                                <a href="#">Контакты &nbsp&nbsp&nbsp</a>
-                                <a href="/cart">Корзина &nbsp&nbsp&nbsp</a>
+                                <a href="/menu" id="menu">Доставка &nbsp;&nbsp;&nbsp;</a>
+                                <a href="#">О компании &nbsp;&nbsp;&nbsp;</a>
+                                <a href="#">Контакты &nbsp;&nbsp;&nbsp;</a>
+                                <a href="/cart">Корзина &nbsp;&nbsp;&nbsp;</a>
                             </div>
-                            <!--<a href="/menu" id="menu"><img src="@routes.Assets.at("images/buttons/btn_1.png")">               </a>
-                            <a href="#"><img src="@routes.Assets.at("images/buttons/btn_2.png")">               </a>
-                            <a href="#"><img src="@routes.Assets.at("images/buttons/btn_3.png")">               </a>
-                            <a href="/cart"><img src="@routes.Assets.at("images/buttons/btn_4.png")"></a>
-                            <br> -->
                             <img src="@routes.Assets.at("images/line1.png")">
                         </div>
                     </div>
@@ -45,7 +39,7 @@
             @content
 
             <footer>
-                <p class="text-center"><strong> Донских Артем и Манущева Алина, 2013 </strong></p>
+                <p class="text-center"><strong>Донских Артем и Манущева Алина, 2013</strong></p>
             </footer>
         </div>
         <script src="http://code.jquery.com/jquery.js"></script>

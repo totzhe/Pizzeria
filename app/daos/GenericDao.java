@@ -1,27 +1,41 @@
 package daos;
 
+import play.db.jpa.JPA;
+
+import javax.persistence.EntityManager;
 import java.io.Serializable;
 
 /**
  * Created with IntelliJ IDEA.
  * User: Artyom
  * Date: 06.04.13
- * Time: 1:01
+ * Time: 1:04
  * To change this template use File | Settings | File Templates.
  */
-public interface GenericDao <T, PK extends Serializable> {
+public class GenericDao<T, PK extends Serializable>
+        implements IGenericDao<T, PK> {
+    protected Class<T> type;
+    protected EntityManager em;
 
-    /** Сохранить объект newInstance в базе данных */
-    void create(T newInstance);
+    public GenericDao(Class<T> type) {
+        this.type = type;
+        em = JPA.em();
+    }
 
-    /** Извлечь объект, предварительно сохраненный в базе данных, используя
-     *   указанный id в качестве первичного ключа
-     */
-    T read(PK id);
+    public void create(T o) {
+        em.persist(o);
+    }
 
-    /** Сохранить изменения, сделанные в объекте.  */
-    void update(T transientObject);
+    public T read(PK id) {
+        return (T) em.find(type, id);
+    }
 
-    /** Удалить объект из базы данных */
-    void delete(T persistentObject);
+    public void update(T o) {
+        //em.refresh(o);
+        em.merge(o);
+    }
+
+    public void delete(T o) {
+        em.remove(o);
+    }
 }
