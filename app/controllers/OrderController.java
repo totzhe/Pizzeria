@@ -4,7 +4,10 @@ import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 import models.Order;
 import models.OrderItem;
+import org.codehaus.jackson.node.ObjectNode;
+import play.cache.Cache;
 import play.db.jpa.Transactional;
+import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
@@ -48,13 +51,12 @@ import views.html.menu;
 }*/
 
 public class OrderController extends Controller {
+
     @Transactional
     public static Result addItem(int id, int quantity) {
-        String data = session("order");
-        Order order = data == null? new Order() : new JSONDeserializer<Order>().deserialize(data);
+        Order order = CacheController.loadOrder();
         ServiceFactory.getInstance().getMakeOrderService().AddItem(order, id, quantity);
-        JSONSerializer s = new JSONSerializer();
-        session("order", s.deepSerialize(order));
+        CacheController.saveOrder(order);
         //Нарандомить блюд
         /*GenericDao<Dish, Integer> dao = new GenericDao<Dish, Integer>(Dish.class);
         DishSortDao dao1 = new DishSortDao();
@@ -70,18 +72,25 @@ public class OrderController extends Controller {
             d.setPrice(random.nextInt(1500)%600);
             dao.create(d);
         } */
-        return ok(""+order.getSum());
+        return ok(String.valueOf(order.getSum()));
+    }
+
+    @Transactional
+    public static Result editItem(int id, int quantity) {
+        Order order = CacheController.loadOrder();
+        int itemCost = ServiceFactory.getInstance().getMakeOrderService().EditItem(order, id, quantity);
+        CacheController.saveOrder(order);
+        ObjectNode result = Json.newObject();
+            result.put("item_cost", itemCost);
+            result.put("sum", order.getSum());
+        return ok(result);
     }
 
     @Transactional//(readOnly = true)
     public static Result removeItem(int id) {
-        String data = session("order");
-        if(data == null)
-            return ok("0");
-        Order order = new JSONDeserializer<Order>().deserialize(data);
+        Order order = CacheController.loadOrder();
         ServiceFactory.getInstance().getMakeOrderService().RemoveItem(order, id);
-        JSONSerializer s = new JSONSerializer();
-        session("order", s.deepSerialize(order));
-        return ok(""+order.getSum());
+        CacheController.saveOrder(order);
+        return ok(String.valueOf(order.getSum()));
     }
 }

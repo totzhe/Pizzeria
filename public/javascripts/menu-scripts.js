@@ -8,8 +8,8 @@
 
 
 $(document).ready(function () {
-    $(".btn.btn-success").click(function () {
-        var id = $(this).attr("value");
+    $("body").on('click', '.btn-success', function () {
+        var id = $(this).val();
         var q = 1;
         var btn = $(this);
         jsRoutes.controllers.OrderController.addItem(id, q).ajax({
@@ -18,36 +18,40 @@ $(document).ready(function () {
             dataType: 'text',   //тип ответа
             success: function (data) {
                 //alert(data);
-                btn.attr("class", ".btn btn-danger") ;
-                btn.html("Убрать из корзины") ;
+                btn.removeClass("btn-success");
+                btn.addClass("btn-danger");
+                btn.html("Убрать из корзины");
                 $("#sum").html("Сумма: " + data + " руб.");
             },
             error: function () {
-                alert("Error!");
+                alert("Add error!");
             }
         });
     });
 });
 
 $(document).ready(function () {
-    $(".btn.btn-danger").click(function () {
-        alert("Hello world1!");
-        var id = $(this).attr("value");
+    $("body").on('click', '.btn-danger', function () {
+        var id = $(this).val();
         var btn = $(this);
-        btn.attr("class", ".btn btn-success") ;
+        //btn.attr("class", ".btn btn-success") ;
         //$("body").html("HI"+jsonToSend);
-        jsRoutes.controllers.OrderController.removeItem(id, q).ajax({
+        btn.removeClass("btn-danger");
+        btn.addClass("btn-success");
+        btn.html("Заказать");
+        jsRoutes.controllers.OrderController.removeItem(id).ajax({
             type: "DELETE",
             data: null,
             dataType: 'text',   //тип ответа
             success: function (data) {
                 //alert(data);
-                btn.attr("class", ".btn btn-success") ;
-                btn.html("Заказать") ;
-                $("#sum").html("Сумма:!!! " + data + " руб.");
+                btn.removeClass("btn btn-danger");
+                btn.addClass("btn btn-success");
+                btn.html("Заказать");
+                $("#sum").html("Сумма: " + data + " руб.");
             },
             error: function () {
-                alert("Error!");
+                alert("Remove error!");
             }
         });
     });

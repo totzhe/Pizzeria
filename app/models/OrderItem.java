@@ -47,16 +47,15 @@ public class OrderItem {
 
     public void setDishId(int dish_id) {
         this.dish_id = dish_id;
-        //cost = getQuantity()*getDish().getPrice();
+        Dish d = DaoFactory.getInstance().getDishDao().read(dish_id);
+       if(d != null)
+            cost = quantity*d.getPrice();
+        else
+            cost = 0;
     }
 
     public Dish getDish() {
-        return DaoFactory.getInstance().getDishDao().read(id);
-    }
-
-    public void setDish(Dish dish) {
-        this.dish_id = dish.getId();
-        //cost = getQuantity()*getDish().getPrice();
+        return DaoFactory.getInstance().getDishDao().read(dish_id);
     }
 
     @Column(name = "quantity")
@@ -68,10 +67,11 @@ public class OrderItem {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-        /*if(dish_id > 0)
-            cost = getQuantity()*getDish().getPrice();
+        Dish d = DaoFactory.getInstance().getDishDao().read(dish_id);
+        if(d != null)
+            cost = quantity*d.getPrice();
         else
-            cost = 0;*/
+            this.cost = 0;
     }
 
     @Column(name = "cost")

@@ -15,18 +15,19 @@ import java.util.Iterator;
  */
 public class MakeOrderService implements IMakeOrderService {
     @Override
-    public void AddItem(Order order, int dishId, int quantity) {
+    public int AddItem(Order order, int dishId, int quantity) {
         for (Iterator<OrderItem> i = order.getItems().iterator(); i.hasNext(); ) {
             OrderItem item = i.next();
             if (item.getDishId() == dishId) {
                 item.setQuantity(item.getQuantity() + quantity);
-                return;
+                return item.getCost();
             }
         }
         OrderItem item = new OrderItem();
         item.setDishId(DaoFactory.getInstance().getDishDao().read(dishId).getId());
         item.setQuantity(quantity);
         order.getItems().add(item);
+        return item.getCost();
     }
 
 
@@ -42,8 +43,15 @@ public class MakeOrderService implements IMakeOrderService {
     }
 
     @Override
-    public void EditItem(Order order, int dishId, int quantity) {
-
+    public int EditItem(Order order, int dishId, int quantity) {
+        for (Iterator<OrderItem> i = order.getItems().iterator(); i.hasNext(); ) {
+            OrderItem item = i.next();
+            if (item.getDishId() == dishId) {
+                item.setQuantity(quantity);
+                return item.getCost();
+            }
+        }
+        return 0;
     }
 
     @Override

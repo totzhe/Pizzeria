@@ -1,57 +1,59 @@
-@(dishes: List[models.Dish]/*, orderForm: Form[User]*/)
+@(order: models.Order /*, orderForm: Form[User]*/)
 
 @import helper._
 @import helper.twitterBootstrap._
 
-@main(Html("Pizza")){
+@main(Html("Pizza")) {
     <div class="row" id="cart-header">
-        <strong><p class="text-center"> Корзина </p></strong>
+        <strong><p class="text-center">Корзина</p></strong>
     </div>
+    <p class="text-right" id="sum">Сумма: @order.getSum() руб.</p>
 
-    @for(dish <- dishes.seq){
-        <div class="row" id="cart-row">
-            <div class="span3">
-                <img src="@routes.Assets.at(dish.getPicturePath())">
+    @for(item <- order.getItems().seq) {
+        @defining(item.getDish()) { dish =>
+            <div class="row" id="@item.getDishId()">
+                <div class="span3">
+                    <img src="@routes.Assets.at(dish.getPicturePath())">
+                </div>
+                <div class="span4" id="cart-row2">
+                    <p class="text-center">@dish.getName()</p> <br>
+                    <p class="text-center">@dish.getPrice() руб./шт.</p>
+                </div>
+                <div class="span2">
+                    <input type="number" min="0" max="99" step="1" dish_id="@item.getDishId()" value="@item.getQuantity()" id="stepper">
+                    <button class="btn btn-alert remove_item" dish_id="@item.getDishId()">Удалить</button>
+                </div>
+                <div class="span2" id="cart-row3">
+                    <div id="item_cost@item.getDishId()">@item.getCost() руб.</div>
+                </div>
             </div>
-            <div class="span4"  id="cart-row2">
-                <p class="text-center"> @dish.getName() </p> <br>
-                <p class="text-center"> @dish.getPrice() руб./шт.</p>
-            </div>
-            <div class="span2">
-                <input type="number" min="0" max="10" step="1" value="1" id="stepper">
-            </div>
-            <div class="span2" id="cart-row3">
-               <div id="text_next_stepper">@dish.getPrice() руб.</div>
-            </div>
-        </div>
+        }
     }
 
     <div class="row">
         <div class="span7 offset6" id="cart-buttons">
-            <!--<input type="image" src="@routes.Assets.at("images/buttons/dark_green_button_return.png")" class="button"id="cart-return-button">-->
-            <!--<input type="image" data-toggle="modal" data-target="#myModal" src="@routes.Assets.at("images/buttons/red_button_checkout.png")" class="button"id="cart-checkout-button">-->
             <button class="btn btn-large btn-danger" id="cart-return-button">Вернуться к покупкам</button>
-            <button class="btn btn-large btn-success" data-toggle="modal" data-target="#myModal" id="cart-checkout-button"> Оформить заказ </button>
-            <!--<a href="#myModal" role="button" class="btn" data-toggle="modal" id="cart-checkout-button">Launch demo modal</a>-->
+            <button class="btn btn-large btn-success" data-toggle="modal" data-target="#myModal" id="cart-checkout-button">
+                Оформить заказ
+            </button>
         </div>
     </div>
 
-    <!-- Button to trigger modal -->
-    <!--<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>-->
+        <!-- Button to trigger modal -->
+        <!--<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>-->
 
-    <!-- Modal -->
-    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h2 id="myModalLabel">Оформление заказа</h2>
+        <!-- Modal -->
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h2 id="myModalLabel">Оформление заказа</h2>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-large btn-danger" data-dismiss="modal" aria-hidden="true">Закрыть</button>
+                <button class="btn btn-large btn-success">Отправить</button>
+            </div>
         </div>
-        <div class="modal-body">
-
-
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-large btn-danger" data-dismiss="modal" aria-hidden="true">Закрыть</button>
-            <button class="btn btn-large btn-success">Отправить</button>
-        </div>
-    </div>
+        <script src="@routes.Assets.at("javascripts/cart-scripts.js")" type="text/javascript"></script>
 }

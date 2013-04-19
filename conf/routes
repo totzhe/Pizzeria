@@ -5,7 +5,8 @@
 # Home page
 GET     /                           controllers.Application.index()
 GET     /menu/:id                       controllers.Application.menu(id:scala.Int)
-PUT     /order/:id:q                       controllers.OrderController.addItem(id:scala.Int, q:scala.Int)
+POST     /order/:id/:q                       controllers.OrderController.addItem(id:scala.Int, q:scala.Int)
+PUT     /order/:id/:q                       controllers.OrderController.editItem(id:scala.Int, q:scala.Int)
 DELETE     /order/:id                       controllers.OrderController.removeItem(id:scala.Int)
 GET   /user-name-ajax/:id     controllers.Application.user(id:Long)
 GET     /cart                     controllers.Application.cart()

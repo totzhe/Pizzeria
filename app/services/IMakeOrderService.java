@@ -10,11 +10,11 @@ import models.Order;
  * To change this template use File | Settings | File Templates.
  */
 public interface IMakeOrderService {
-    void AddItem(Order order, int dishId, int quantity);
+    int AddItem(Order order, int dishId, int quantity);
 
     void RemoveItem(Order order, int dishId);
 
-    void EditItem(Order order, int dishId, int quantity);
+    int EditItem(Order order, int dishId, int quantity);
 
     void ConfirmOrder(Order order);
 }

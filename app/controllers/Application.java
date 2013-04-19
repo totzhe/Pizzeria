@@ -1,6 +1,5 @@
 package controllers;
 
-import daos.DaoFactory;
 import daos.DishSortDao;
 import daos.GenericDao;
 import flexjson.JSONDeserializer;
@@ -73,15 +72,16 @@ public class Application extends Controller {
             d.setPrice(random.nextInt(1500)%600);
             dao.create(d);
         } */
-        String data = session("order");
-        Order order = data == null ? new Order() : new JSONDeserializer<Order>().deserialize(data);
+        Order order = CacheController.loadOrder();
         List<Integer> selectedItems = new LinkedList<Integer>();
 
         for (Iterator<OrderItem> i = order.getItems().iterator(); i.hasNext(); ) {
             OrderItem item = i.next();
             selectedItems.add(item.getDishId());
         }
-        return ok(menu.render(id, ServiceFactory.getInstance().getShowMenuService().getDishSortById(id).getDishes(), selectedItems));
+        return ok(menu.render(id, ServiceFactory.getInstance().getShowMenuService().getDishSorts(),
+                ServiceFactory.getInstance().getShowMenuService().getDishSortById(id).getDishes(),
+                selectedItems, order.getSum()));
     }
 
     public static Result user(Long id) {
@@ -138,19 +138,11 @@ public class Application extends Controller {
 
     @Transactional
     public static Result cart() {
-        Dish d;
-        GenericDao<Dish, Integer> dao = new GenericDao<Dish, Integer>(Dish.class);
-
-        //change dish sort
-        d = dao.read(1);
-        List<Dish> dishes = new LinkedList<Dish>();
-        for (int i = 1; i < 4; i++) {
-            dishes.add(d);
-        }
+        Order order = CacheController.loadOrder();
 
         //User defaulUser = new User("name", "address", new User.Phone("01.23.45.67.89"));
 
-        return ok(cart.render(dishes)/*, form.render(orderForm.fill(defaulUser))*/);
+        return ok(cart.render(order)/*, form.render(orderForm.fill(defaulUser))*/);
     }
 
 
@@ -175,6 +167,7 @@ public class Application extends Controller {
                         controllers.routes.javascript.Application.JsonExamplePOST(),
                         controllers.routes.javascript.Application.user(),
                         controllers.routes.javascript.OrderController.addItem(),
+                        controllers.routes.javascript.OrderController.editItem(),
                         controllers.routes.javascript.OrderController.removeItem()
                 )
         );
