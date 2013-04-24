@@ -1,7 +1,7 @@
-@(sorts: List[models.DishSort])
+@(sorts: List[models.DishSort], sum : scala.Int)
 
 
-@main(Html("Pizza")) {
+@main(Html("Pizza"), sum) {
     <div id="myCarousel" class="carousel slide">
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -21,9 +21,11 @@
         <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div>
 
+    <!--
     <input type="button" class="button" name="magic_button" value="Json" id="JsonBOTH">
     <input type="button" class="button" name="magic_button" value="JsonFromServer" id="JsonGET">
     <input type="button" class="button" name="magic_button" value="JsonToServer" id="JsonPOST">
+    -->
 
     <ul class="thumbnails" id="index_t">
         <div class="row">

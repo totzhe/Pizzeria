@@ -18,7 +18,7 @@ $(document).ready(function () {
             dataType: 'json',   //тип ответа
             success: function (data) {
                 $("#item_cost"+id).html(data.item_cost + " руб.");
-                $("#sum").html("Сумма: " + data.sum + " руб.");
+                $("#sum").html(data.sum + " руб.");
             },
             error: function () {
                 alert("Edit error!");
@@ -36,7 +36,11 @@ $(document).ready(function () {
             dataType: 'text',   //тип ответа
             success: function (data) {
                 $("#"+id).remove();
-                $("#sum").html("Сумма: " + data + " руб.");
+                $("#sum").html(data + " руб.");
+                if(data == 0)
+                {
+                    $("#cart-checkout-button").addClass("disabled");
+                }
             },
             error: function () {
                 alert("Remove error!");

@@ -1,6 +1,6 @@
 @(sortId: scala.Int, sorts: List[models.DishSort], dishes: List[models.Dish], selectedItems: List[Integer], sum: scala.Int)
 
-@main(Html("Pizza")) {
+@main(Html("Pizza"), sum) {
     <div class="row" id="menu-bar">
         <div class="span12">
         @for(sort <- sorts.seq) {
@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <p class="text-right" id="sum">Сумма: @sum руб.</p>
+    <!--<p class="text-right" id="sum">Сумма: sum руб.</p>-->
 
     <ul class="thumbnails" id="menu_thumbnails">
         <div class="row">
@@ -25,9 +25,9 @@
 
                     <center>
                     @if(!selectedItems.contains(dish.getId)) {
-                        <button class="btn btn-success" id="@dish.getId()" value="@dish.getId()">Заказать</button>
+                        <button class="btn btn-success cart" id="@dish.getId()" value="@dish.getId()">Заказать</button>
                     } else {
-                        <button class="btn btn-danger" id="@dish.getId()" value="@dish.getId()">Убрать из корзины</button>
+                        <button class="btn btn-danger cart" id="@dish.getId()" value="@dish.getId()">Убрать из корзины</button>
                     }
                     </center>
                 </li>

@@ -30,48 +30,14 @@ import flexjson.JSONSerializer;
 public class Application extends Controller {
     @Transactional(readOnly = true)
     public static Result index() {
-        return ok(index.render(ServiceFactory.getInstance().getShowMenuService().getDishSorts()));
+        Order order = CacheController.loadOrder();
+        return ok(index.render(ServiceFactory.getInstance().getShowMenuService().getDishSorts(), order.getSum()));
     }
 
     static java.util.Random random = new java.util.Random();
 
-    @Transactional//(readOnly = true)
+    @Transactional
     public static Result menu(int id) {
-        /*GenericDao<Order, Integer> dao = new GenericDao<Order, Integer>(Order.class);
-        Order o = new Order();
-        o.setCustomerName("Тестов Тест Тестович");
-        o.setCustomerAddress("ул. Тестовая, дом 0");
-        o.setCustomerPhone("+71234567890");
-        Date now = new Date();
-        o.setRecievingTime(now);
-        o.setSendingTime(now);
-        dao.create(o);
-        GenericDao<OrderItem, Integer> dao1 = new GenericDao<OrderItem, Integer>(OrderItem.class);
-        OrderItem oi = new OrderItem();
-        oi.setCost(50);
-        oi.setDish(DaoFactory.getInstance().getDishDao().read(1));
-        oi.setQuantity(1);
-        oi.setOrderId(1);
-        //dao1.create(oi);
-        o.getItems().add(oi);
-        //o.getItems().add(oi);
-        DaoFactory.getInstance().getOrderDao().create(o); */
-
-        //Нарандомить блюд
-        /*GenericDao<Dish, Integer> dao = new GenericDao<Dish, Integer>(Dish.class);
-        DishSortDao dao1 = new DishSortDao();
-        for (int i = 1; i < 7; i++) {
-            Dish d = new Dish();
-            DishSort ds = dao1.read(id);
-            d.setSort(ds);
-            d.setName(ds.getName() + i);
-            d.setDescription("Описание " + d.getName());
-            d.setIngredients("Состав " + d.getName());
-            d.setPicturePath("images/pizzas/null.jpg");
-            d.setWeight(random.nextInt(1500)%1200);
-            d.setPrice(random.nextInt(1500)%600);
-            dao.create(d);
-        } */
         Order order = CacheController.loadOrder();
         List<Integer> selectedItems = new LinkedList<Integer>();
 
@@ -87,12 +53,6 @@ public class Application extends Controller {
     public static Result user(Long id) {
         return ok("You selected id = " + id);
     }
-
-    //final static Form<User> orderForm = form(User.class);
-
-    /*public static Result blank() {
-        return ok(form.render(orderForm));
-    } */
 
     @BodyParser.Of(play.mvc.BodyParser.Json.class)
     @Transactional
@@ -136,35 +96,35 @@ public class Application extends Controller {
         return ok(serializer.serialize(sorts));
     }
 
+    final static Form<User> userForm = form(User.class);
+
     @Transactional
     public static Result cart() {
         Order order = CacheController.loadOrder();
-
-        //User defaulUser = new User("name", "address", new User.Phone("01.23.45.67.89"));
-
-        return ok(cart.render(order)/*, form.render(orderForm.fill(defaulUser))*/);
+        return ok(cart.render(order, userForm));
     }
 
-
-    /*public static Result submit() {
-        Form<User> filledForm = orderForm.bindFromRequest();
+    @Transactional
+    public static Result submit() {
+        Form<User> filledForm = userForm.bindFromRequest();
+        Order order = CacheController.loadOrder();
 
         if(filledForm.hasErrors()) {
-            return badRequest(form.render(filledForm));
+            return badRequest(cart.render(order, filledForm));
         } else {
             User created = filledForm.get();
-            return ok();
+            return ok(cart.render(order, filledForm));
         }
-    } */
+    }
 
     public static Result javascriptRoutes() {
         response().setContentType("text/javascript");
         return ok(
                 Routes.javascriptRouter("jsRoutes",
                         // Routes
-                        controllers.routes.javascript.Application.JsonExample(),
-                        controllers.routes.javascript.Application.JsonExampleGET(),
-                        controllers.routes.javascript.Application.JsonExamplePOST(),
+                        //controllers.routes.javascript.Application.JsonExample(),
+                        //controllers.routes.javascript.Application.JsonExampleGET(),
+                        //controllers.routes.javascript.Application.JsonExamplePOST(),
                         controllers.routes.javascript.Application.user(),
                         controllers.routes.javascript.OrderController.addItem(),
                         controllers.routes.javascript.OrderController.editItem(),

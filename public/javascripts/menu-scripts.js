@@ -21,7 +21,7 @@ $(document).ready(function () {
                 btn.removeClass("btn-success");
                 btn.addClass("btn-danger");
                 btn.html("Убрать из корзины");
-                $("#sum").html("Сумма: " + data + " руб.");
+                $("#sum").html(data + " руб.");
             },
             error: function () {
                 alert("Add error!");
@@ -48,7 +48,7 @@ $(document).ready(function () {
                 btn.removeClass("btn btn-danger");
                 btn.addClass("btn btn-success");
                 btn.html("Заказать");
-                $("#sum").html("Сумма: " + data + " руб.");
+                $("#sum").html(data + " руб.");
             },
             error: function () {
                 alert("Remove error!");

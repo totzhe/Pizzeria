@@ -11,24 +11,24 @@ footer{
 
 .phone_number{
     font-family: 'Century Gothic', 'Times New Roman', serif;
-    font-size: 32pt;
+    font-size: 30pt;
     position: relative;
-    right: -230px;
-    top: 30px;
+    right: -270px;
+    top: 20px;
 }
 
 .free_text{
     font-family: 'Century Gothic', 'Times New Roman', serif;
     font-size: 13pt;
     position: relative;
-    right: -410px;
-    top: 40px;
+    right: -430px;
+    top: 15px;
 }
 
 .main_menu{
     position: relative;
     right: -165px;
-    top: 60px;
+    top: 20px;
 }
 
 .main_menu a{
@@ -41,6 +41,18 @@ footer{
 
 .main_menu a:hover{
     text-decoration: none;
+}
+
+#sum{
+    margin-top: 10px;
+}
+
+.sum{
+    margin-top: 25px;
+    margin-right: 25px;
+    font-family: 'Century Gothic', 'Times New Roman', serif;
+    font-size: 13pt;
+    color: firebrick;
 }
 
 #header-menu{
@@ -119,11 +131,9 @@ footer{
     margin-top: 50px;
 }
 
-/*.button{
-    margin-top: 20px;
-    height: 30px;
-    width: 121px;
-} */
+.cart{
+    margin-top: 10px;
+}
 
 #btn-book{
     margin-top: 20px;
@@ -140,7 +150,7 @@ footer{
     color: firebrick;
 }
 
-#cart-row{
+.cart-row{
     margin-top: 30px;
     border-style: solid;
     border-width: 1px;
@@ -163,10 +173,21 @@ footer{
 }
 
 #cart-row3{
+    margin-top: -3px;
+    margin-left: -20px;
+}
+
+.remove_item{
+    margin-left: 35px;
+}
+
+#cart-row4{
     /*margin-left: 60px;*/
+    margin-left: 60px;
+    margin-top: 60px;
     color: firebrick;
     font-family: 'Century Gothic', 'Times New Roman', serif;
-    font-size: 18pt;
+    font-size: 22pt;
 }
 
 #stepper{
@@ -190,5 +211,35 @@ footer{
 
 #cart-buttons{
     margin-top: 30px;
+}
+
+.cart-username{
+    font-family: 'Century Gothic', 'Times New Roman', serif;
+    color: firebrick;
+}
+
+.cart-address{
+    margin-top: 10px;
+    font-family: 'Century Gothic', 'Times New Roman', serif;
+    color: firebrick;
+}
+
+.cart-phone{
+    margin-top: 10px;
+    font-family: 'Century Gothic', 'Times New Roman', serif;
+    color: firebrick;
+}
+
+.send-button{
+    margin-top: 15px;
+}
+
+.send-error{
+    margin-top: 30px;
+}
+
+#myModal{
+    width: 310px;
+    margin-left: -155px;
 }
 

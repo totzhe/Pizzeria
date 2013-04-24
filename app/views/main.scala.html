@@ -1,4 +1,4 @@
-@(title: Html)(content: Html)
+@(title: Html, sum : scala.Int = 0)(content: Html)
 
 @import helper._
 @import controllers.routes.javascript._
@@ -21,8 +21,12 @@
                         <a href="/"><img src="@routes.Assets.at("images/logo.png")"></a>
                     </div>
                     <div class="span8">
-                        <p class="phone_number">+7 (473) 222-33-44</p>
-                        <p class="free_text">Доставка бесплатна</p>
+                        <div class="row phone_number">
+                            <p>+7 (473) 222-33-44</p>
+                        </div>
+                        <div class="row free_text">
+                            <p>Доставка бесплатна</p>
+                        </div>
                         <div class="row main_menu">
                             <div class="span12" id="header-menu">
                                 <a href="/delivery" id="delivery">Доставка &nbsp;&nbsp;&nbsp;</a>
@@ -31,6 +35,10 @@
                                 <a href="/cart">Корзина &nbsp;&nbsp;&nbsp;</a>
                             </div>
                             <img src="@routes.Assets.at("images/line1.png")">
+                        </div>
+                        <div class="sum">
+                            <p class="text-right">Сумма:</p>
+                            <p class="text-right" id="sum">@sum руб.</p>
                         </div>
                     </div>
                 </div>

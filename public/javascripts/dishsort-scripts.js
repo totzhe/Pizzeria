@@ -98,9 +98,4 @@ $(document).ready(function () {
             }
         });
     });
-});/*
-
-$(document).ready(function () {
-    //$("ul").html("");
-    $("body").html("HELLO");
-});*/
+});

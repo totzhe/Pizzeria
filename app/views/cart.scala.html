@@ -1,17 +1,16 @@
-@(order: models.Order /*, orderForm: Form[User]*/)
+@(order: models.Order, userForm: Form[User])
 
 @import helper._
 @import helper.twitterBootstrap._
 
-@main(Html("Pizza")) {
+@main(Html("Pizza"), order.getSum()) {
     <div class="row" id="cart-header">
         <strong><p class="text-center">Корзина</p></strong>
     </div>
-    <p class="text-right" id="sum">Сумма: @order.getSum() руб.</p>
 
     @for(item <- order.getItems().seq) {
         @defining(item.getDish()) { dish =>
-            <div class="row" id="@item.getDishId()">
+            <div class="row cart-row" id="@item.getDishId()">
                 <div class="span3">
                     <img src="@routes.Assets.at(dish.getPicturePath())">
                 </div>
@@ -19,15 +18,21 @@
                     <p class="text-center">@dish.getName()</p> <br>
                     <p class="text-center">@dish.getPrice() руб./шт.</p>
                 </div>
-                <div class="span2">
+                <div class="span2" id="cart-row3">
                     <input type="number" min="0" max="99" step="1" dish_id="@item.getDishId()" value="@item.getQuantity()" id="stepper">
                     <button class="btn btn-alert remove_item" dish_id="@item.getDishId()">Удалить</button>
                 </div>
-                <div class="span2" id="cart-row3">
+                <div class="span2" id="cart-row4">
                     <div id="item_cost@item.getDishId()">@item.getCost() руб.</div>
                 </div>
             </div>
         }
+    }
+
+    @if(userForm.hasErrors) {
+        <div class="alert alert-error send-error">
+            <p><strong>Ошибка</strong> Пожалуйста, заполните правильно форму </p>
+        </div>
     }
 
     <div class="row">
@@ -46,14 +51,37 @@
         <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h2 id="myModalLabel">Оформление заказа</h2>
+                <h3 id="myModalLabel">Оформление заказа</h3>
             </div>
             <div class="modal-body">
+                @helper.form(action = routes.Application.submit(), 'class -> "form-horizontal") {
+                    <fieldset>
+                        @inputText(userForm("username"),
+                            '_class -> "cart-username",
+                            '_label -> "Ф.И.О.",
+                            '_help -> "Введите Ф.И.О.",
+                            '_error -> userForm.globalError
+                        )
+                        @textarea(userForm("address"),
+                            '_class -> "cart-address",
+                            '_cols -> 100,
+                            '_help -> "Введите адрес доставки",
+                            '_label -> "Адрес"
+                        )
+                        @inputText(userForm("phone"),
+                            '_class -> "cart-phone",
+                            '_label -> "Телефон",
+                            '_help -> "Введите номер телефона",
+                            '_error -> userForm.globalError
+                        )
+                    </fieldset>
+                    <button class="btn btn-large btn-danger send-button" data-dismiss="modal" aria-hidden="true">Закрыть</button>
+                    <button class="btn btn-large btn-success send-button ">Отправить</button>
+                }
             </div>
-            <div class="modal-footer">
+            <!--<div class="modal-footer">
                 <button class="btn btn-large btn-danger" data-dismiss="modal" aria-hidden="true">Закрыть</button>
-                <button class="btn btn-large btn-success">Отправить</button>
-            </div>
+            </div> -->
         </div>
         <script src="@routes.Assets.at("javascripts/cart-scripts.js")" type="text/javascript"></script>
 }

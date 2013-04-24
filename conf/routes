@@ -3,17 +3,18 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
-GET     /menu/:id                       controllers.Application.menu(id:scala.Int)
-POST     /order/:id/:q                       controllers.OrderController.addItem(id:scala.Int, q:scala.Int)
-PUT     /order/:id/:q                       controllers.OrderController.editItem(id:scala.Int, q:scala.Int)
-DELETE     /order/:id                       controllers.OrderController.removeItem(id:scala.Int)
-GET   /user-name-ajax/:id     controllers.Application.user(id:Long)
-GET     /cart                     controllers.Application.cart()
-POST     /JsonExample                      controllers.Application.JsonExample()
-GET     /JsonExample                      controllers.Application.JsonExampleGET()
-POST     /JsonExamplePOST                      controllers.Application.JsonExamplePOST()
-GET    /assets/javascripts/routes   controllers.Application.javascriptRoutes()
+GET         /                               controllers.Application.index()
+GET         /menu/:id                       controllers.Application.menu(id:scala.Int)
+POST        /order/:id/:q                   controllers.OrderController.addItem(id:scala.Int, q:scala.Int)
+PUT         /order/:id/:q                   controllers.OrderController.editItem(id:scala.Int, q:scala.Int)
+DELETE      /order/:id                      controllers.OrderController.removeItem(id:scala.Int)
+GET         /user-name-ajax/:id             controllers.Application.user(id:Long)
+GET         /cart                           controllers.Application.cart()
+#POST        /JsonExample                    controllers.Application.JsonExample()
+#GET         /JsonExample                    controllers.Application.JsonExampleGET()
+#POST        /JsonExamplePOST                controllers.Application.JsonExamplePOST()
+GET         /assets/javascripts/routes      controllers.Application.javascriptRoutes()
+POST        /cart/info                      controllers.Application.submit()
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET         /assets/*file                   controllers.Assets.at(path="/public", file)
