@@ -20,8 +20,8 @@ public interface IGenericDao<T, PK extends Serializable> {
     T read(PK id);
 
     /** Сохранить изменения, сделанные в объекте.  */
-    void update(T transientObject);
+    void update(T object);
 
     /** Удалить объект из базы данных */
-    void delete(T persistentObject);
+    void delete(T object);
 }

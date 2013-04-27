@@ -43,7 +43,7 @@ public class OrderController extends Controller {
         return ok(result);
     }
 
-    @Transactional//(readOnly = true)
+    @Transactional
     public static Result removeItem(int id) {
         Order order = CacheController.loadOrder();
         ServiceFactory.getInstance().getMakeOrderService().RemoveItem(order, id);
