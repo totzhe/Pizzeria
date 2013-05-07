@@ -26,6 +26,8 @@ import play.mvc.Result;
 import play.mvc.BodyParser;
 import flexjson.JSONSerializer;
 
+import javax.xml.crypto.Data;
+
 
 public class Application extends Controller {
     @Transactional(readOnly = true)
@@ -105,6 +107,24 @@ public class Application extends Controller {
     }
 
     @Transactional
+    public static Result delivery() {
+        Order order = CacheController.loadOrder();
+        return ok(delivery.render(order));
+    }
+
+    @Transactional
+    public static Result contacts() {
+        Order order = CacheController.loadOrder();
+        return ok(contacts.render(order));
+    }
+
+    @Transactional
+    public static Result about() {
+        Order order = CacheController.loadOrder();
+        return ok(about.render(order));
+    }
+
+    @Transactional
     public static Result submit() {
         Form<User> filledForm = userForm.bindFromRequest();
         Order order = CacheController.loadOrder();
@@ -113,6 +133,20 @@ public class Application extends Controller {
             return badRequest(cart.render(order, filledForm));
         } else {
             User created = filledForm.get();
+            order.setCustomerName(created.username);
+            order.setCustomerAddress(created.address);
+            order.setCustomerPhone(created.phone);
+
+            Date now = new Date();
+            order.setSendingTime(now);
+
+            GenericDao<OrderItem, Integer> dao = new GenericDao<OrderItem, Integer>(OrderItem.class);
+
+            for (Iterator<OrderItem> i = order.getItems().iterator(); i.hasNext(); ) {
+                OrderItem item = i.next();
+                dao.create(item);
+            }
+
             return ok(cart.render(order, filledForm));
         }
     }
