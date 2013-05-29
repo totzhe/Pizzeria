@@ -19,5 +19,9 @@ GET         /delivery                       controllers.Application.delivery()
 GET         /contacts                       controllers.Application.contacts()
 GET         /about                          controllers.Application.about()
 
+GET         /indexadmin                     controllers.AdministrationController.indexadmin()
+GET         /startadmin                     controllers.Application.login()
+POST        /login/:log/:pass               controllers.AdministrationController.login(log:String, pass:String)
+
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file                   controllers.Assets.at(path="/public", file)

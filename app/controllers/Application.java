@@ -9,7 +9,6 @@ import play.*;
 import play.api.templates.Html;
 import play.data.Form;
 import play.db.jpa.*;
-
 import services.ServiceFactory;
 import views.html.*;
 import views.html.helper.form;
@@ -20,20 +19,20 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.BodyParser;
 import flexjson.JSONSerializer;
-
-import javax.xml.crypto.Data;
-
 
 public class Application extends Controller {
     @Transactional(readOnly = true)
     public static Result index() {
         Order order = CacheController.loadOrder();
         return ok(index.render(ServiceFactory.getInstance().getShowMenuService().getDishSorts(), order.getSum()));
+    }
+
+    public static Result login() {
+        return ok(login.render());
     }
 
     static java.util.Random random = new java.util.Random();
@@ -162,7 +161,8 @@ public class Application extends Controller {
                         controllers.routes.javascript.Application.user(),
                         controllers.routes.javascript.OrderController.addItem(),
                         controllers.routes.javascript.OrderController.editItem(),
-                        controllers.routes.javascript.OrderController.removeItem()
+                        controllers.routes.javascript.OrderController.removeItem(),
+                        controllers.routes.javascript.AdministrationController.login()
                 )
         );
     }
