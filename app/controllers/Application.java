@@ -10,7 +10,7 @@ import play.api.templates.Html;
 import play.data.Form;
 import play.db.jpa.*;
 
-import services.ServiceFactory;
+import services.ShowMenuService;
 import views.html.*;
 import views.html.helper.form;
 
@@ -31,7 +31,7 @@ public class Application extends Controller {
     @Transactional(readOnly = true)
     public static Result index() {
         Order order = CacheController.loadOrder();
-        return ok(index.render(ServiceFactory.getInstance().getShowMenuService().getDishSorts(), order.getSum()));
+        return ok(index.render(new ShowMenuService().getDishSorts(), order.getSum()));
     }
 
     static java.util.Random random = new java.util.Random();
@@ -43,10 +43,10 @@ public class Application extends Controller {
 
         for (Iterator<OrderItem> i = order.getItems().iterator(); i.hasNext(); ) {
             OrderItem item = i.next();
-            selectedItems.add(item.getDishId());
+            selectedItems.add(item.getDish().getId());
         }
-        return ok(menu.render(id, ServiceFactory.getInstance().getShowMenuService().getDishSorts(),
-                ServiceFactory.getInstance().getShowMenuService().getDishSortById(id).getDishes(),
+        return ok(menu.render(id, new ShowMenuService().getDishSorts(),
+                new ShowMenuService().getDishSortById(id).getDishes(),
                 selectedItems, order.getSum()));
     }
 
@@ -96,25 +96,10 @@ public class Application extends Controller {
         return ok(serializer.serialize(sorts));
     }
 
-    final static Form<User> userForm = form(User.class);
-
     @Transactional
     public static Result cart() {
         Order order = CacheController.loadOrder();
-        return ok(cart.render(order, userForm));
-    }
-
-    @Transactional
-    public static Result submit() {
-        Form<User> filledForm = userForm.bindFromRequest();
-        Order order = CacheController.loadOrder();
-
-        if(filledForm.hasErrors()) {
-            return badRequest(cart.render(order, filledForm));
-        } else {
-            User created = filledForm.get();
-            return ok(cart.render(order, filledForm));
-        }
+        return ok(cart.render(order, OrderController.userForm));
     }
 
     public static Result javascriptRoutes() {

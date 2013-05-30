@@ -31,4 +31,11 @@ public class CacheController {
         }
         Cache.set(uuid, order);
     }
+
+    public static void deleteOrder(Order order) {
+        String uuid=session("uuid");
+        if(uuid!=null) {
+            Cache.set(uuid, null, 0);
+        }
+    }
 }

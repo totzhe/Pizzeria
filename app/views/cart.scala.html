@@ -10,7 +10,7 @@
 
     @for(item <- order.getItems().seq) {
         @defining(item.getDish()) { dish =>
-            <div class="row cart-row" id="@item.getDishId()">
+            <div class="row cart-row" id="@item.getDish().getId()">
                 <div class="span3">
                     <img src="@routes.Assets.at(dish.getPicturePath())">
                 </div>
@@ -19,11 +19,11 @@
                     <p class="text-center">@dish.getPrice() руб./шт.</p>
                 </div>
                 <div class="span2" id="cart-row3">
-                    <input type="number" min="0" max="99" step="1" dish_id="@item.getDishId()" value="@item.getQuantity()" id="stepper">
-                    <button class="btn btn-alert remove_item" dish_id="@item.getDishId()">Удалить</button>
+                    <input type="number" min="0" max="99" step="1" dish_id="@item.getDish().getId()" value="@item.getQuantity()" id="stepper">
+                    <button class="btn btn-alert remove_item" dish_id="@item.getDish().getId()">Удалить</button>
                 </div>
                 <div class="span2" id="cart-row4">
-                    <div id="item_cost@item.getDishId()">@item.getCost() руб.</div>
+                    <div id="item_cost@item.getDish().getId()">@item.getCost() руб.</div>
                 </div>
             </div>
         }
@@ -54,7 +54,7 @@
                 <h3 id="myModalLabel">Оформление заказа</h3>
             </div>
             <div class="modal-body">
-                @helper.form(action = routes.Application.submit(), 'class -> "form-horizontal") {
+                @helper.form(action = routes.OrderController.submit(), 'class -> "form-horizontal") {
                     <fieldset>
                         @inputText(userForm("username"),
                             '_class -> "cart-username",

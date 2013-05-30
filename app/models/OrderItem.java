@@ -1,6 +1,5 @@
 package models;
 
-import daos.DaoFactory;
 
 import javax.persistence.*;
 
@@ -27,35 +26,32 @@ public class OrderItem {
         this.id = id;
     }*/
 
-    @Column(name = "order_id")
-    private int orderId;
+    //@Column(name = "order_id", nullable = false)
+    @ManyToOne
+    private Order order;
 
-    public int getOrderId() {
-        return orderId;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setOrderId(int id) {
-        this.orderId = id;
+    public void setOrderId(Order order) {
+        this.order = order;
     }
 
-    @Column(name = "dish_id")
-    private int dish_id;
-
-    public int getDishId() {
-        return dish_id;
-    }
-
-    public void setDishId(int dish_id) {
-        this.dish_id = dish_id;
-        Dish d = DaoFactory.getInstance().getDishDao().read(dish_id);
-       if(d != null)
-            cost = quantity*d.getPrice();
-        else
-            cost = 0;
-    }
+    //@Column(name = "dish_id")
+    @ManyToOne
+    private Dish dish;
 
     public Dish getDish() {
-        return DaoFactory.getInstance().getDishDao().read(dish_id);
+        return dish;
+    }
+
+    public void setDish(Dish dish) {
+        this.dish = dish;
+       if(dish != null)
+            cost = quantity*dish.getPrice();
+        else
+            cost = 0;
     }
 
     @Column(name = "quantity")
@@ -67,9 +63,8 @@ public class OrderItem {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-        Dish d = DaoFactory.getInstance().getDishDao().read(dish_id);
-        if(d != null)
-            cost = quantity*d.getPrice();
+        if(dish != null)
+            cost = quantity*dish.getPrice();
         else
             this.cost = 0;
     }

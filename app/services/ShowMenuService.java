@@ -1,6 +1,7 @@
 package services;
 
-import daos.DaoFactory;
+import daos.DishSortDao;
+import daos.GenericDao;
 import daos.IGenericDao;
 import models.Dish;
 import models.DishSort;
@@ -15,23 +16,23 @@ import java.util.List;
  * Time: 16:55
  * To change this template use File | Settings | File Templates.
  */
-public class ShowMenuService implements IShowMenuService {
+public class ShowMenuService {
 
     public ShowMenuService() {
     }
 
-    @Override
+
     public List<DishSort> getDishSorts() {
-        return DaoFactory.getInstance().getDishSortDao().getAll();
+        return new DishSortDao().getAll();
     }
 
-    @Override
+
     public DishSort getDishSortById(int id) {
-        return DaoFactory.getInstance().getDishSortDao().read(id);
+        return new DishSortDao().read(id);
     }
 
-    @Override
+
     public Dish getDishById(int id) {
-        return DaoFactory.getInstance().getDishDao().read(id);
+        return new GenericDao<Dish, Integer>(Dish.class).read(id);
     }
 }

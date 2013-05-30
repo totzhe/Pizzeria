@@ -1,6 +1,13 @@
 package models;
 
+import org.hibernate.annotations.*;
+
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OrderBy;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Iterator;
@@ -28,7 +35,7 @@ public class Order {
     }
 
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch=FetchType.LAZY, cascade={CascadeType.ALL})
     @JoinColumn(name = "order_id")
     @OrderBy("id ASC")
     private List<OrderItem> items;
