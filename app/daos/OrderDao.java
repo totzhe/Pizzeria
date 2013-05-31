@@ -1,7 +1,7 @@
 package daos;
 
 import models.DishSort;
-import play.db.jpa.Transactional;
+import models.Order;
 
 import javax.persistence.Query;
 import java.util.List;
@@ -13,14 +13,14 @@ import java.util.List;
  * Time: 2:46
  * To change this template use File | Settings | File Templates.
  */
-public class DishSortDao extends GenericDao<DishSort, Integer> {
-    public DishSortDao() {
-        super(DishSort.class);
+public class OrderDao extends GenericDao<Order, Integer> {
+    public OrderDao() {
+        super(Order.class);
     }
 
-    public List<DishSort> getAll()
+    public List<Order> getAll()
     {
-        Query query = em.createQuery("select ds from DishSort ds");
+        Query query = em.createQuery("select order from Order order");
         return query.getResultList();
     }
 }

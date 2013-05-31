@@ -14,7 +14,7 @@ GET         /assets/javascripts/routes      controllers.Application.javascriptRo
 POST        /order/:id/:q                   controllers.OrderController.addItem(id:scala.Int, q:scala.Int)
 PUT         /order/:id/:q                   controllers.OrderController.editItem(id:scala.Int, q:scala.Int)
 DELETE      /order/:id                      controllers.OrderController.removeItem(id:scala.Int)
-POST        /cart/info                      controllers.OrderController.submit()
+POST        /cart                      controllers.OrderController.submit()
 
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file                   controllers.Assets.at(path="/public", file)
