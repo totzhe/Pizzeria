@@ -129,6 +129,7 @@
     </orderEntry>
     <orderEntry type="library" name="hibernate-4.1.1" level="project" />
     <orderEntry type="library" name="flexjson-2.1" level="application" />
+    <orderEntry type="library" name="flexjson-2.11" level="project" />
   </component>
 </module>
 

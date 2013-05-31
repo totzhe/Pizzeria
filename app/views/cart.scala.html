@@ -8,6 +8,13 @@
         <strong><p class="text-center">Корзина</p></strong>
     </div>
 
+
+    @if(userForm.hasErrors) {
+        <div class="alert alert-error send-error">
+            <p><strong>Ошибка</strong> Пожалуйста, заполните правильно форму </p>
+        </div>
+    }
+
     @for(item <- order.getItems().seq) {
         @defining(item.getDish()) { dish =>
             <div class="row cart-row" id="@item.getDish().getId()">
@@ -27,12 +34,6 @@
                 </div>
             </div>
         }
-    }
-
-    @if(userForm.hasErrors) {
-        <div class="alert alert-error send-error">
-            <p><strong>Ошибка</strong> Пожалуйста, заполните правильно форму </p>
-        </div>
     }
 
     <div class="row">
