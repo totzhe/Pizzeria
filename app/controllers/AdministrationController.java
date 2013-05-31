@@ -6,6 +6,9 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import services.MD5;
 import views.html.indexadmin;
+import views.html.notification;
+
+import java.io.Console;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,8 +27,12 @@ public class AdministrationController extends Controller {
     public static Result login(String login, String password) {
         LoginDao loginDao = new LoginDao();
         if (loginDao.Verify(login, /*MD5.getHash(password)*/password))
-            return ok(String.valueOf("Checked"));
+            return ok("Checked");
         else
             return badRequest("Login or password is wrong");
+    }
+
+    public static Result notification() {
+        return ok(notification.render());
     }
 }

@@ -21,8 +21,8 @@ public class LoginDao extends GenericDao<Admin, Integer> {
         Query query = em.createQuery("from Admin where login = :log and password_hash = :pass");
 
         if (query.setParameter("log", login).setParameter("pass", password).getSingleResult() != null)
-            return true;
+            return false;
 
-        return false;
+        return true;
     }
 }
